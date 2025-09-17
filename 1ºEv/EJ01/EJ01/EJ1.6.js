@@ -32,10 +32,17 @@ const cursos = [
 
 //2
 const resumenCursos = cursos.map(curso => {
-    const nombreCurso = curso.nombre
-    // const sumCalificaciones = estudiantes.reduce((acum, estudiante) => acum + estudiante.calificacion, 0);
+    const nombreCurso = curso.nombre;
+    const promedioCalificaciones = curso.estudiantes.reduce(
+        (acum, estudiante) => acum + estudiante.calificacion, 0) 
+        / curso.estudiantes.length;
 
+        return { 
+            nombreCurso, 
+            promedioCalificaciones
+        };
 });
+console.log(resumenCursos);
 
 //3
 const cursosDestacados = cursos.filter(curso => {
@@ -48,7 +55,7 @@ const cursosDestacados = cursos.filter(curso => {
 cursosDestacados.forEach(curso => {
     const total = curso.estudiantes.reduce((acum, estudiante) => acum + estudiante.calificacion, 0);
     const promedio = total / curso.estudiantes.length;
-    console.log(`📘 El curso ${curso.nombre} tiene un promedio de ${promedio.toFixed(2)} y es considerado destacado.`);
+    console.log(`📘 El curso ${curso.nombre} tiene un promedio de ${promedio} y es considerado destacado.`);
 });
 
 //5
