@@ -35,4 +35,8 @@ function eliminarLibro(id) {
   return false;
 }
 
-export { agregarLibro, obtenerLibros, buscarLibro, eliminarLibro };
+function calcularTotalPaginas() {
+  return libros.reduce((acum, libro) => acum + libro.paginas, 0);
+}
+
+export { agregarLibro, obtenerLibros, buscarLibro, eliminarLibro, calcularTotalPaginas };
