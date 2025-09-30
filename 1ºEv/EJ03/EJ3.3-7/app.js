@@ -1,4 +1,11 @@
-import { agregarLibro, obtenerLibros, buscarLibro, eliminarLibro, calcularTotalPaginas, ordenarPorPaginas } from './biblioteca.js';
+import { agregarLibro, 
+  obtenerLibros, 
+  buscarLibro, 
+  eliminarLibro, 
+  calcularTotalPaginas, 
+  ordenarPorPaginas,
+  hayLibrosLargos,
+  todosSonLibrosCortos  } from './biblioteca.js';
 
 const nuevoLibro = {
   id: 11,
@@ -45,3 +52,11 @@ obtenerLibros().forEach(libro => {
 
 const totalPaginas = calcularTotalPaginas();
 console.log(`\nTotal de páginas en la biblioteca: ${totalPaginas}`);
+
+
+const limites = [100, 300, 800];
+
+limites.forEach(limite => {
+  console.log(`\n¿Hay libros con más de ${limite} páginas? ${hayLibrosLargos(limite)}`);
+  console.log(`¿Todos los libros tienen menos de ${limite} páginas? ${todosSonLibrosCortos(limite)}`);
+});

@@ -43,4 +43,21 @@ function ordenarPorPaginas() {
 libros.sort((a, b) => a.paginas - b.paginas);
 }
 
-export { agregarLibro, obtenerLibros, buscarLibro, eliminarLibro, calcularTotalPaginas, ordenarPorPaginas };
+function hayLibrosLargos(limitePaginas) {
+  return libros.some(libro => libro.paginas > limitePaginas);
+}
+
+function todosSonLibrosCortos(limitePaginas) {
+  return libros.every(libro => libro.paginas < limitePaginas);
+}
+
+export {
+  agregarLibro,
+  obtenerLibros,
+  buscarLibro,
+  eliminarLibro,
+  calcularTotalPaginas,
+  ordenarPorPaginas,
+  hayLibrosLargos,
+  todosSonLibrosCortos
+};
