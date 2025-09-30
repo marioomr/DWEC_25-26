@@ -1,4 +1,4 @@
-import { agregarLibro, obtenerLibros, buscarLibro, eliminarLibro, calcularTotalPaginas } from './biblioteca.js';
+import { agregarLibro, obtenerLibros, buscarLibro, eliminarLibro, calcularTotalPaginas, ordenarPorPaginas } from './biblioteca.js';
 
 const nuevoLibro = {
   id: 11,
@@ -36,5 +36,12 @@ obtenerLibros().forEach(libro => {
   console.log(`- ${libro.titulo} (${libro.autor}) - ${libro.paginas} páginas`);
 });
 
+ordenarPorPaginas();
+
+console.log("\nColección de libros después de ordenar por páginas:");
+obtenerLibros().forEach(libro => {
+  console.log(`- ${libro.titulo} (${libro.paginas} páginas)`);
+});
+
 const totalPaginas = calcularTotalPaginas();
-console.log(`\n📖 Total de páginas en la biblioteca: ${totalPaginas}`);
+console.log(`\nTotal de páginas en la biblioteca: ${totalPaginas}`);

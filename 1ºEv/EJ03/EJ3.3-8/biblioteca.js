@@ -39,4 +39,8 @@ function calcularTotalPaginas() {
   return libros.reduce((acum, libro) => acum + libro.paginas, 0);
 }
 
-export { agregarLibro, obtenerLibros, buscarLibro, eliminarLibro, calcularTotalPaginas };
+function ordenarPorPaginas() {
+libros.sort((a, b) => a.paginas - b.paginas);
+}
+
+export { agregarLibro, obtenerLibros, buscarLibro, eliminarLibro, calcularTotalPaginas, ordenarPorPaginas };
