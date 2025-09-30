@@ -22,4 +22,17 @@ function obtenerLibros() {
 }
 
 
-export { agregarLibro, obtenerLibros };
+function buscarLibro(id) {
+  return libros.find(libro => libro.id === id);
+}
+
+function eliminarLibro(id) {
+  const index = libros.findIndex(libro => libro.id === id);
+  if (index !== -1) {
+    libros.splice(index, 1);
+    return true;
+  }
+  return false;
+}
+
+export { agregarLibro, obtenerLibros, buscarLibro, eliminarLibro };
