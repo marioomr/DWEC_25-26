@@ -1,4 +1,4 @@
 (function() {
-  const formulario = document.getElementById('formulario-contacto');
-  console.log('Ejercicio 5:', formulario);
+  const formulario = document.getElementById('form-contact');
+  console.log('EJ 5:', formulario);
 })();

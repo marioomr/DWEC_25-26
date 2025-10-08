@@ -1,6 +1,7 @@
 (function() {
   const premiumCard = document.querySelector('.premium');
   if (premiumCard) {
-    console.log('EJ 3:', premiumCard.outerHTML);
+    const h2 = premiumCard.querySelector('h2');
+    console.log('EJ 17:', h2);
   }
 })();
