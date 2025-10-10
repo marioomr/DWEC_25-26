@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería de Imágenes</title>
+  <style>
+    #galeria-miniaturas {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .miniatura {
+      width: 100px;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .miniatura:hover {
+      border-color: rgb(44, 189, 25);
+    }
+  </style>
+></head>
+<body>
+<div>
+  <img id="imagen-principal" src="https://images.unsplash.com/photo-1757105388973-3b3e58a4b5ee?q=80&w=385&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagen Principal" width="500">
+</div>
+
+<div id="galeria-miniaturas">
+  <img class="miniatura" src="https://images.unsplash.com/photo-1758944966746-65fcfac5c547?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Miniatura 1" onclick="cambiarImagenPrincipal(0)">
+  <img class="miniatura" src="https://images.unsplash.com/photo-1754962847100-5670247319aa?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Miniatura 2" onclick="cambiarImagenPrincipal(1)">
+  <img class="miniatura" src="https://images.unsplash.com/photo-1757104519823-72f73faed2c5?q=80&w=385&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Miniatura 3" onclick="cambiarImagenPrincipal(2)">
+  <img class="miniatura" src="https://images.unsplash.com/photo-1755397467747-6160983f9694?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Miniatura 4" onclick="cambiarImagenPrincipal(3)">
+</div>
+
+</body>
+<script src="scripts.js"></script>
+</html>
+
