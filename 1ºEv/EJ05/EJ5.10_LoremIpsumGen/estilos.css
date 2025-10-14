@@ -1,0 +1,22 @@
+#numParrafos {
+  width: 60px;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+#btnGenerar {
+  padding: 6px 12px;
+  cursor: pointer;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #eee;
+}
+
+#btnGenerar:hover {
+  background-color: #ddd;
+}
+
+#resultado p {
+  margin-bottom: 1em;
+  line-height: 1.4;
+}

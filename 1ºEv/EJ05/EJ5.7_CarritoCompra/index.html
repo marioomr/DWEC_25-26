@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Carrito de la Compra</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+
+  <h2>Productos</h2>
+  <ul id="lista-productos">
+    <li data-price="10.99">
+      Camiseta - 10.99€
+      <button class="btn-anadir">Añadir al carrito</button>
+    </li>
+    <li data-price="5.50">
+      Gorra - 5.50€
+      <button class="btn-anadir">Añadir al carrito</button>
+    </li>
+    <li data-price="20.00">
+      Pantalones - 20.00€
+      <button class="btn-anadir">Añadir al carrito</button>
+    </li>
+    <li data-price="7.25">
+      Calcetines - 7.25€
+      <button class="btn-anadir">Añadir al carrito</button>
+    </li>
+  </ul>
+
+  <h2>Carrito</h2>
+  <ul id="carrito"></ul>
+  <p>Total: <span id="total">0.00</span>€</p>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

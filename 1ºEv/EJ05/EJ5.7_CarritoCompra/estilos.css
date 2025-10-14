@@ -1,0 +1,29 @@
+#lista-productos li, #carrito li {
+  margin: 8px 0;
+}
+
+button.btn-anadir, button.btn-quitar {
+  margin-left: 10px;
+  padding: 4px 8px;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+}
+
+button.btn-anadir {
+  background-color: #2ecc71;
+  color: white;
+}
+
+button.btn-anadir:hover {
+  background-color: #27ae60;
+}
+
+button.btn-quitar {
+  background-color: #e74c3c;
+  color: white;
+}
+
+button.btn-quitar:hover {
+  background-color: #c0392b;
+}

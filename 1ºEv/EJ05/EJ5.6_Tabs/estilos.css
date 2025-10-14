@@ -1,0 +1,26 @@
+.oculto {
+  display: none;
+}
+
+#contenedor-pestanas button {
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  border-radius: 4px 4px 0 0;
+}
+
+#contenedor-pestanas button.pestana-activa {
+  background-color: white;
+  border-bottom: 2px solid white;
+  font-weight: bold;
+}
+
+#contenedor-contenidos {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-top: -1px;
+  width: 300px;
+  border-radius: 0 4px 4px 4px;
+}

@@ -1,0 +1,9 @@
+#informe-errores p {
+  margin: 5px 0;
+  font-weight: bold;
+  color: red;
+}
+
+#informe-errores p.valido {
+  color: green;
+}

@@ -1,0 +1,17 @@
+#lista-tareas li {
+  margin: 8px 0;
+}
+
+button.eliminar {
+  margin-left: 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 2px 8px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+button.eliminar:hover {
+  background-color: #c0392b;
+}
