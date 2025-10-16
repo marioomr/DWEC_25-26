@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Filtrado de Lista en Vivo</title>
+</head>
+<body>
+
+  <input type="text" id="searchInput" placeholder="Buscar país..." />
+
+  <ul id="countryList">
+    <li>Argentina</li>
+    <li>Brasil</li>
+    <li>Canadá</li>
+    <li>Dinamarca</li>
+    <li>Egipto</li>
+    <li>Francia</li>
+    <li>Grecia</li>
+    <li>Hungría</li>
+    <li>India</li>
+    <li>Japón</li>
+  </ul>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const countryList = document.getElementById('countryList');
+    const countries = countryList.getElementsByTagName('li');
+
+    searchInput.addEventListener('input', () => {
+      const filter = searchInput.value.toLowerCase();
+
+      for(let i = 0; i < countries.length; i++) {
+        const countryName = countries[i].textContent.toLowerCase();
+        if(countryName.includes(filter)) {
+          countries[i].style.display = '';
+        } else {
+          countries[i].style.display = 'none';
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

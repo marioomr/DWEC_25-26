@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tabla Editable</title>
+</head>
+<body>
+
+  <table id="editableTable">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Juan</td>
+        <td>Pérez</td>
+        <td>juan.perez@email.com</td>
+      </tr>
+      <tr>
+        <td>Ana</td>
+        <td>García</td>
+        <td>ana.garcia@email.com</td>
+      </tr>
+      <tr>
+        <td>Carlos</td>
+        <td>Ramírez</td>
+        <td>carlos.ramirez@email.com</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    const table = document.getElementById('editableTable');
+
+    table.addEventListener('dblclick', (event) => {
+      const target = event.target;
+
+      if (target.tagName.toLowerCase() === 'td') {
+        if (target.querySelector('input')) return;
+
+        const originalText = target.textContent;
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = originalText;
+        input.classList.add('edit-input');
+
+        target.textContent = '';
+        target.appendChild(input);
+        input.focus();
+
+        input.addEventListener('blur', () => {
+          const newValue = input.value.trim();
+          target.textContent = newValue === '' ? originalText : newValue;
+        });
+
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            input.blur(); 
+          }
+          if (e.key === 'Escape') {
+            target.textContent = originalText;
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

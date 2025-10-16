@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Aplicación de Dibujo</title>
+</head>
+<body>
+
+  <div id="grid"></div>
+
+  <script>
+    const grid = document.getElementById('grid');
+    const rows = 40;
+    const cols = 40;
+    let isDrawing = false;
+
+  for(let i = 0; i < rows * cols; i++) {
+      const cell = document.createElement('div');
+      cell.classList.add('cell');
+      grid.appendChild(cell);
+    }
+
+   grid.addEventListener('mousedown', (e) => {
+      if(e.target.classList.contains('cell')) {
+        isDrawing = true;
+        e.target.style.backgroundColor = 'black';
+      }
+      e.preventDefault();
+    });
+
+    grid.addEventListener('mouseover', (e) => {
+      if(isDrawing && e.target.classList.contains('cell')) {
+        e.target.style.backgroundColor = 'black';
+      }
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDrawing = false;
+    });
+
+    grid.addEventListener('contextmenu', (e) => e.preventDefault());
+  </script>
+
+</body>
+</html>

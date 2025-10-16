@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habilitar/Deshabilitar Botón</title>
+</head>
+<body>
+
+  <label>
+    <input type="checkbox" id="termsCheckbox" />
+    Acepto los términos y condiciones
+  </label>
+  <br />
+  <button id="submitBtn" disabled>Enviar</button>
+
+  <script>
+    const checkbox = document.getElementById('termsCheckbox');
+    const submitBtn = document.getElementById('submitBtn');
+
+    checkbox.addEventListener('change', () => {
+      submitBtn.disabled = !checkbox.checked;
+    });
+  </script>
+
+</body>
+</html>

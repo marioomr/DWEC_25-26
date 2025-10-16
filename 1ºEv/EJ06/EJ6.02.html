@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Generador Dinámico de Tablas</title>
+</head>
+<body>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
+  </table>
+
+  <form id="formulario">
+    <input type="text" id="nombre" placeholder="Nombre" required />
+    <input type="text" id="apellido" placeholder="Apellido" required />
+    <button type="submit">Añadir Fila</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('formulario');
+    const tbody = document.getElementById('tableBody');
+    const inputNombre = document.getElementById('nombre');
+    const inputApellido = document.getElementById('apellido');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); 
+
+      const nombre = inputNombre.value.trim();
+      const apellido = inputApellido.value.trim();
+
+      if(nombre === '' || apellido === '') {
+        alert('Por favor, rellena ambos campos.');
+        return;
+      }
+
+      const nuevaFila = document.createElement('tr');
+      const celdaNombre = document.createElement('td');
+      const celdaApellido = document.createElement('td');
+
+      celdaNombre.textContent = nombre;
+      celdaApellido.textContent = apellido;
+
+      nuevaFila.appendChild(celdaNombre);
+      nuevaFila.appendChild(celdaApellido);
+
+      tbody.appendChild(nuevaFila);
+
+      inputNombre.value = '';
+      inputApellido.value = '';
+
+      inputNombre.focus();
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lista Ordenable</title>
+</head>
+<body>
+
+  <ul id="sortableList">
+    <li>
+      Elemento 1
+      <span class="btn-group">
+        <button class="btn-up">Subir</button>
+        <button class="btn-down">Bajar</button>
+      </span>
+    </li>
+    <li>
+      Elemento 2
+      <span class="btn-group">
+        <button class="btn-up">Subir</button>
+        <button class="btn-down">Bajar</button>
+      </span>
+    </li>
+    <li>
+      Elemento 3
+      <span class="btn-group">
+        <button class="btn-up">Subir</button>
+        <button class="btn-down">Bajar</button>
+      </span>
+    </li>
+    <li>
+      Elemento 4
+      <span class="btn-group">
+        <button class="btn-up">Subir</button>
+        <button class="btn-down">Bajar</button>
+      </span>
+    </li>
+    <li>
+      Elemento 5
+      <span class="btn-group">
+        <button class="btn-up">Subir</button>
+        <button class="btn-down">Bajar</button>
+      </span>
+    </li>
+  </ul>
+
+  <script>
+    const list = document.getElementById('sortableList');
+
+    function actualizarBotones() {
+      const items = list.querySelectorAll('li');
+      items.forEach((li, index) => {
+        const btnUp = li.querySelector('.btn-up');
+        const btnDown = li.querySelector('.btn-down');
+
+        btnUp.disabled = index === 0;
+        btnDown.disabled = index === items.length - 1;
+      });
+    }
+
+    actualizarBotones();
+
+    list.addEventListener('click', (e) => {
+      if (e.target.tagName.toLowerCase() !== 'button') return;
+
+      const btn = e.target;
+      const li = btn.closest('li');
+
+      if (btn.classList.contains('btn-up')) {
+        const prev = li.previousElementSibling;
+        if (prev) {
+          list.insertBefore(li, prev);
+          actualizarBotones();
+        }
+      } else if (btn.classList.contains('btn-down')) {
+        const next = li.nextElementSibling;
+        if (next) {
+          list.insertBefore(next, li);
+          actualizarBotones();
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
