@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventana Emergente</title>
+</head>
+<body>
+  <h2>Hola desde el Pop-up!</h2>
+  <p>Esta es una ventana emergente controlada por JS</p>
+  <button id="close-btn">Cerrar</button>
+
+  <script>
+    const closeBtn = document.getElementById('close-btn');
+
+    closeBtn.addEventListener('click', () => {
+      if (window.opener && !window.opener.closed) {
+        const mainHeading = window.opener.document.querySelector('h1');
+        if (mainHeading) {
+          mainHeading.textContent = 'El pop-up te saluda';
+        }
+      }
+
+      window.close();
+    });
+  </script>
+</body>
+</html>

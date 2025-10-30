@@ -1,0 +1,33 @@
+    #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 6px;
+        background-color: #007bff;
+        width: 0%;
+    }
+
+    #btn-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 16px;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    #btn-top.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    main {
+        padding: 2rem;
+        max-width: 800px;
+        margin: auto;
+    }
