@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manuscrito>
+    <texto>Busca en el segundo párrafo, allí encontrarás la palabra que ilumina el camino.</texto>
+    <pista>Está resaltada en negrita dentro del segundo párrafo.</pista>
+    <selector_solucion>#contenido p:nth-of-type(2) strong</selector_solucion>
+    <letra_clave>C</letra_clave>
+    <siguiente_fragmento>fragmento3.xml</siguiente_fragmento>
+</manuscrito>

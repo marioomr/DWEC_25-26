@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Manuscrito Cifrado</title>
+</head>
+<body>
+    <header>
+        <h2>Descifra <strong>el Secreto</strong> del Manuscrito</h2>
+    </header>
+
+    <div id="info">
+        <p>Bienvenido al juego del manuscrito. Cada fragmento contiene un acertijo.</p>
+        <p>Busca las palabras clave en el texto.</p>
+    </div>
+
+    <div id="alfabeto" aria-label="Alfabeto">
+        <div class="letra" data-letra="A">A</div>
+        <div class="letra" data-letra="B">B</div>
+        <div class="letra" data-letra="C">C</div>
+        <div class="letra" data-letra="T">T</div>
+    </div>
+
+    <p id="intentos">Intentos: 0</p>
+
+    <button id="empezar">Empezar</button>
+
+    <div id="juego">
+        <p id="texto">Pulsa "Empezar" para recibir el primer fragmento.</p>
+        <p id="pista"></p>
+
+        <h3>Texto donde buscar</h3>
+        <div id="contenido">
+            <p>Primer párrafo: una línea cualquiera sin negrita.</p>
+            <p>Segundo párrafo: aquí está la palabra <strong>LUZ</strong> destacada.</p>
+            <p>Tercer párrafo: una frase más para despistar.</p>
+
+            <ul id="lista-secreta">
+                <li>Primera palabra clave</li>
+                <li>Otra entrada</li>
+                <li>Más elementos</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

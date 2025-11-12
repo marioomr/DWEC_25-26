@@ -1,0 +1,9 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<manuscrito>
+    <texto>El tercer secreto se esconde en la primera entrada de la lista.</texto>
+    <pista>Mira el primer elemento de la lista en la sección de contenido.</pista>
+    <selector_solucion>#lista-secreta li:first-child</selector_solucion>
+    <letra_clave>B</letra_clave>
+    <siguiente_fragmento>null</siguiente_fragmento>
+</manuscrito>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Sintetizador de Materiales</title>
+</head>
+<body>
+  <h1>Sintetizador de Materiales</h1>
+
+  <label for="baseSelect">Material Base:</label><br>
+  <select id="baseSelect">
+    <option value="">-- selecciona base --</option>
+  </select>
+  <br><br>
+
+  <label for="mezclaSelect">Material de Mezcla:</label><br>
+  <select id="mezclaSelect">
+    <option value="">-- selecciona mezcla --</option>
+  </select>
+  <br><br>
+
+  <button id="sintetizarBtn">Sintetizar</button>
+
+  <h2>Resultado</h2>
+  <div id="resultado">
+    <p id="resNombre"></p>
+    <p id="resDescripcion"></p>
+  </div>
+
+  <h2>Historial de Síntesis</h2>
+  <ul id="historial"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>

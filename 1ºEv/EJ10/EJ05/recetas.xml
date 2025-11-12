@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<recetas>
+    <aleacion>
+        <base>Hierro</base>
+        <mezcla>Carbono</mezcla>
+        <resultado>Acero</resultado>
+        <descripcion>Una aleación fuerte y versátil, usada durante siglos.</descripcion>
+    </aleacion>
+
+    <aleacion>
+        <base>Cobre</base>
+        <mezcla>Estaño</mezcla>
+        <resultado>Bronce</resultado>
+        <descripcion>Más duro que el cobre, revolucionó la Edad de los Metales.</descripcion>
+    </aleacion>
+
+    <aleacion>
+        <base>Aluminio</base>
+        <mezcla>Cobre</mezcla>
+        <resultado>Duraluminio</resultado>
+        <descripcion>Aleación ligera y resistente, habitual en aeronáutica.</descripcion>
+    </aleacion>
+
+    <aleacion>
+        <base>Níquel</base>
+        <mezcla>Cromo</mezcla>
+        <resultado>Nicromo</resultado>
+        <descripcion>Excelente resistencia a la corrosión y altas temperaturas.</descripcion>
+    </aleacion>
+
+    <aleacion>
+        <base>Plomo</base>
+        <mezcla>Estaño</mezcla>
+        <resultado>Soldadura blanda</resultado>
+        <descripcion>Usada históricamente en soldaduras; menor punto de fusión.</descripcion>
+    </aleacion>
+
+    <aleacion>
+        <base>Plata</base>
+        <mezcla>Oro</mezcla>
+        <resultado>Electrum</resultado>
+        <descripcion>Aleación natural o artificial de oro y plata, usada en monedas antiguas.</descripcion>
+    </aleacion>
+
+    <aleacion>
+        <base>Cobre</base>
+        <mezcla>Aluminio</mezcla>
+        <resultado>Aluminio bronce</resultado>
+        <descripcion>Aleación más resistente que el cobre puro, con buena resistencia al desgaste.</descripcion>
+    </aleacion>
+
+    <aleacion>
+        <base>Titanio</base>
+        <mezcla>Aluminio</mezcla>
+        <resultado>Titanio aluminio</resultado>
+        <descripcion>Aleación ligera con buena resistencia mecánica; uso aeroespacial.</descripcion>
+    </aleacion>
+
+    <aleacion>
+        <base>Hierro</base>
+        <mezcla>Níquel</mezcla>
+        <resultado>Acero inoxidable (aleación)</resultado>
+        <descripcion>Cuando contiene cromo y níquel puede alcanzar resistencia a la corrosión.</descripcion>
+    </aleacion>
+</recetas>

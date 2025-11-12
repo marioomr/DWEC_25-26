@@ -1,0 +1,17 @@
+<reporte>
+  <medicion timestamp="2025-11-20T10:00:00Z">
+    <oxigeno>20.9</oxigeno>
+    <temperatura>-15.5</temperatura>
+    <presion>1012</presion>
+  </medicion>
+  <medicion timestamp="2025-11-20T09:00:00Z">
+    <oxigeno>21.1</oxigeno>
+    <temperatura>-15.2</temperatura>
+    <presion>1015</presion>
+  </medicion>
+  <medicion timestamp="2025-11-20T08:00:00Z">
+    <oxigeno>21.0</oxigeno>
+    <temperatura>-15.8</temperatura>
+    <presion>1013</presion>
+  </medicion>
+</reporte>

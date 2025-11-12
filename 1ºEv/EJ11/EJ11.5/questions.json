@@ -1,0 +1,50 @@
+[
+  {
+    "questionId": "Q001",
+    "text": "¿Cuál NO es un tipo de petición HTTP comúnmente usado en AJAX?",
+    "options": [
+      { "id": "A", "text": "GET" },
+      { "id": "B", "text": "POST" },
+      { "id": "C", "text": "PULL" },
+      { "id": "D", "text": "PUT" }
+    ],
+    "correctAnswer": "C",
+    "explanation": "PULL no es un método HTTP estándar; GET, POST, PUT, DELETE son los más comunes."
+  },
+  {
+    "questionId": "Q002",
+    "text": "¿Qué método se utiliza para convertir una cadena JSON en un objeto JavaScript?",
+    "options": [
+      { "id": "A", "text": "JSON.toObject()" },
+      { "id": "B", "text": "JSON.parse()" },
+      { "id": "C", "text": "JSON.stringify()" },
+      { "id": "D", "text": "JSON.decode()" }
+    ],
+    "correctAnswer": "B",
+    "explanation": "JSON.parse() convierte una cadena JSON en un objeto JavaScript."
+  },
+  {
+    "questionId": "Q003",
+    "text": "¿Cuál es la forma correcta de comprobar si una promesa ha fallado?",
+    "options": [
+      { "id": "A", "text": "Usando .then() con un segundo callback" },
+      { "id": "B", "text": "Usando .catch()" },
+      { "id": "C", "text": "Usando try/catch fuera de la promesa" },
+      { "id": "D", "text": "Ninguna de las anteriores" }
+    ],
+    "correctAnswer": "B",
+    "explanation": "El manejo de errores en promesas se hace con .catch(). También se puede usar try/catch dentro de async/await."
+  },
+  {
+    "questionId": "Q004",
+    "text": "En el contexto de front-end, ¿qué significa 'DOM'?",
+    "options": [
+      { "id": "A", "text": "Document Object Model" },
+      { "id": "B", "text": "Data Oriented Modeling" },
+      { "id": "C", "text": "Direct Object Mapping" },
+      { "id": "D", "text": "Distributed Object Memory" }
+    ],
+    "correctAnswer": "A",
+    "explanation": "DOM significa Document Object Model: la representación estructurada del documento HTML."
+  }
+]

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<documento>
+  <id>2</id>
+  <titulo>Constitución</titulo>
+  <fecha>1787</fecha>
+  <imagen>img/doc2.jpg</imagen>
+  <descripcion>Documento que establece la estructura del gobierno.</descripcion>
+  <siguiente>documento_ultimo.xml</siguiente>
+  <anterior>documento_1.xml</anterior>
+</documento>

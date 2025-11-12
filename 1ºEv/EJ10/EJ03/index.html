@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Acceso a Búnker</title>
+</head>
+<body>
+  <h1>Acceso a Búnker</h1>
+
+  <form id="accesoForm" autocomplete="off">
+    <label for="codigo">Código de Agente:</label><br>
+    <input id="codigo" name="codigo" type="text" placeholder="Ej: 007"><br>
+    <div id="codigoHint"></div><br>
+
+    <label for="clave">Clave de Acceso:</label><br>
+    <input id="clave" name="clave" type="password" placeholder="Introduce la clave"><br>
+    <div id="claveHint"></div><br>
+
+    <button id="acceder" type="submit" disabled>Acceder</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>

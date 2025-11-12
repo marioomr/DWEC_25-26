@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<documento>
+  <id>3</id>
+  <titulo>Carta de Derechos</titulo>
+  <fecha>1791</fecha>
+  <imagen>img/doc_ultimo.jpg</imagen>
+  <descripcion>Las primeras diez enmiendas a la Constitución.</descripcion>
+  <siguiente>null</siguiente>
+  <anterior>documento_2.xml</anterior>
+</documento>

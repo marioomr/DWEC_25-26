@@ -1,0 +1,17 @@
+[
+  {
+    "author": "María",
+    "text": "¡Buen ejercicio! Interesante práctica con XHR.",
+    "timestamp": "2025-11-05T10:15:00.000Z"
+  },
+  {
+    "author": "Jorge",
+    "text": "Me gusta la simulación del realtime.",
+    "timestamp": "2025-11-06T14:30:00.000Z"
+  },
+  {
+    "author": "Lucía",
+    "text": "Recordad configurar webhook.site para ver los POSTs.",
+    "timestamp": "2025-11-07T09:00:00.000Z"
+  }
+]
