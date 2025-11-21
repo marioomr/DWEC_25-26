@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ejercicio 3 - Calificaciones</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <h1>Usuarios + Calificaciones</h1>
+    <div id="msg"></div>
+    <div id="loading">Cargando...</div>
+    <ul id="lista"></ul>
+
+    <div id="modal" class="modal-hidden">
+      <div class="modal-content">
+        <h3 id="modal-title">Calificaciones</h3>
+        <form id="grades-form">
+          <label>Matemáticas <input type="number" id="g-math" min="0" max="10" step="0.1"></label>
+          <label>Historia <input type="number" id="g-history" min="0" max="10" step="0.1"></label>
+          <label>Ciencia <input type="number" id="g-science" min="0" max="10" step="0.1"></label>
+          <label>Inglés <input type="number" id="g-english" min="0" max="10" step="0.1"></label>
+          <label>Arte <input type="number" id="g-art" min="0" max="10" step="0.1"></label>
+          <div class="modal-buttons">
+            <button id="save-grades">Guardar Calificaciones</button>
+            <button id="clear-grades" type="button">Borrar Calificaciones</button>
+            <button id="close-modal" type="button">Cerrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

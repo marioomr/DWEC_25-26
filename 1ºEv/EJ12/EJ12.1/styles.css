@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    background: #f7f7f7
+}
+
+h1 {
+    margin-bottom: 10px
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 12px
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px
+}
+
+.card {
+    background: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08)
+}
+
+.card h3 {
+    margin: 0 0 8px 0
+}
+
+#estado {
+    margin-bottom: 10px
+}
+
+button,
+select {
+    padding: 6px 8px
+}

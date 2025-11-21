@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ejercicio 1 - Productos</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <h1>Productos</h1>
+    <div class="controls">
+      <label for="categoria">Categoría</label>
+      <select id="categoria">
+        <option value="Todas">Todas</option>
+      </select>
+      <button id="orden-asc">Ordenar de Menor a Mayor Precio</button>
+      <button id="orden-desc">Ordenar de Mayor a Menor Precio</button>
+    </div>
+    <div id="estado">Cargando...</div>
+    <div id="contenedor-productos" class="grid"></div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

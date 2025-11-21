@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    background: #fff
+}
+
+form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px
+}
+
+input {
+    padding: 8px;
+    flex: 1
+}
+
+button {
+    padding: 8px
+}
+
+#mensaje {
+    color: #c00;
+    margin-bottom: 8px
+}
+
+.card {
+    background: #f5f5f5;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 8px
+}

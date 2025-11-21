@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    background: #fff
+}
+
+.err {
+    color: #d00;
+    font-size: 0.9em
+}
+
+#msg {
+    margin-bottom: 10px;
+    color: #080
+}
+
+ul {
+    list-style: none;
+    padding: 0
+}
+
+li.card {
+    background: #f8f8f8;
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+img.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%
+}
+
+button {
+    padding: 6px 8px
+}
+
+input {
+    padding: 8px;
+    margin: 6px 0;
+    display: block;
+    width: 100%;
+    max-width: 420px
+}
+
+#loading {
+    margin-top: 8px
+}

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ejercicio 2 - Async/Await y UX</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <h1>Usuarios avanzado (async/await)</h1>
+    <div id="msg" role="status"></div>
+
+    <section>
+      <input id="buscar" placeholder="Buscar por nombre o apellido" />
+    </section>
+
+    <section id="formulario">
+      <h2>Añadir / Editar usuario</h2>
+      <form id="user-form">
+        <input id="firstName" placeholder="Nombre" required />
+        <div id="err-firstName" class="err"></div>
+        <input id="lastName" placeholder="Apellidos" required />
+        <div id="err-lastName" class="err"></div>
+        <input id="email" placeholder="email@example.com" required />
+        <div id="err-email" class="err"></div>
+        <input id="picture" placeholder="URL imagen" required />
+        <div id="err-picture" class="err"></div>
+        <button id="submit-btn">Guardar</button>
+        <button id="cancel-edit" type="button" hidden>Cancelar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Lista de usuarios</h2>
+      <div id="loading">Cargando...</div>
+      <ul id="lista"></ul>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

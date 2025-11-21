@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    background: #fafafa
+}
+
+h1,
+h2 {
+    margin: 8px 0
+}
+
+#mensajes {
+    margin-bottom: 8px;
+    color: #d00
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: #fff
+}
+
+th,
+td {
+    padding: 8px;
+    border: 1px solid #eee;
+    text-align: left
+}
+
+img.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover
+}
+
+button {
+    padding: 6px 8px;
+    margin-right: 6px
+}
+
+#loading {
+    margin-top: 8px
+}
+
+form input {
+    display: block;
+    padding: 8px;
+    margin: 6px 0;
+    width: 100%;
+    max-width: 420px
+}

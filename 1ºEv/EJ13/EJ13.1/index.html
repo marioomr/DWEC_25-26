@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ejercicio 1 - CRUDcrud (then/catch)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <h1>Usuarios</h1>
+    <div id="mensajes"></div>
+
+    <section id="carga-inicial">
+      <button id="btn-cargar-inicial">Cargar usuarios iniciales</button>
+    </section>
+
+    <section id="formulario">
+      <h2>Añadir / Editar usuario</h2>
+      <form id="user-form">
+        <input id="firstName" placeholder="Nombre" required />
+        <input id="lastName" placeholder="Apellidos" required />
+        <input id="email" placeholder="email@example.com" required />
+        <input id="picture" placeholder="URL imagen" required />
+        <button id="submit-btn">Guardar</button>
+        <button id="cancel-edit" type="button" hidden>Cancelar</button>
+      </form>
+    </section>
+
+    <section id="lista">
+      <h2>Lista de usuarios</h2>
+      <div id="loading">Cargando usuarios...</div>
+      <table id="tabla-usuarios">
+        <thead>
+          <tr><th>Foto</th><th>Nombre</th><th>Email</th><th>Acciones</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

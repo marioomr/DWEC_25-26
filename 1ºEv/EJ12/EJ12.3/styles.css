@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    background: #f8f8f8
+}
+
+form {
+    display: grid;
+    gap: 8px;
+    max-width: 420px
+}
+
+input {
+    padding: 8px
+}
+
+.err {
+    color: #c00;
+    font-size: 0.9em
+}
+
+#estado-sku {
+    font-size: 0.9em;
+    margin-top: 4px
+}
+
+button {
+    padding: 8px
+}
+
+#msg {
+    margin-top: 12px
+}
