@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Procesador de Imágenes por Lotes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Procesador de Imágenes por Lotes</h1>
+
+<div id="drop-zone">
+  Arrastra y suelta imágenes aquí
+</div>
+
+<div class="controls">
+  <label>
+    Marca de agua:
+    <input type="text" id="watermark" placeholder="© Mi App">
+  </label>
+
+  <label>
+    Ancho máximo (px):
+    <input type="number" id="maxWidth" value="800">
+  </label>
+
+  <label>
+    Formato de salida:
+    <select id="format">
+      <option value="image/jpeg">JPEG</option>
+      <option value="image/png">PNG</option>
+    </select>
+  </label>
+
+  <button id="process">Procesar</button>
+</div>
+
+<div id="preview"></div>
+<div id="downloads"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

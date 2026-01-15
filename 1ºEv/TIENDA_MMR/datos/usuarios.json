@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "nombre": "Ana",
+    "apellidos": "García",
+    "email": "ana.garcia@example.com",
+    "password": "password123",
+    "telefono": "+34600111222",
+    "direccion": {
+      "calle": "Calle Mayor 1",
+      "ciudad": "Madrid",
+      "codigo_postal": "28001",
+      "pais": "España"
+    },
+    "fecha_actualizacion": "2025-12-11T21:00:00Z"
+  },
+  {
+    "id": 2,
+    "nombre": "Luis",
+    "apellidos": "Martínez",
+    "email": "luis.martinez@example.com",
+    "password": "pass456",
+    "telefono": "+34600222333",
+    "direccion": {
+      "calle": "Calle Gran Vía 2",
+      "ciudad": "Barcelona",
+      "codigo_postal": "08001",
+      "pais": "España"
+    },
+    "fecha_actualizacion": "2025-12-10T21:00:00Z"
+  },
+  {
+    "id": 3,
+    "nombre": "Marta",
+    "apellidos": "López",
+    "email": "marta.lopez@example.com",
+    "password": "marta789",
+    "telefono": "+34600333444",
+    "direccion": {
+      "calle": "Calle Alcalá 3",
+      "ciudad": "Madrid",
+      "codigo_postal": "28014",
+      "pais": "España"
+    },
+    "fecha_actualizacion": "2025-12-09T21:00:00Z"
+  },
+  {
+    "id": 4,
+    "nombre": "Carlos",
+    "apellidos": "Sánchez",
+    "email": "carlos.sanchez@example.com",
+    "password": "carlos123",
+    "telefono": "+34600444555",
+    "direccion": {
+      "calle": "Calle de Atocha 4",
+      "ciudad": "Sevilla",
+      "codigo_postal": "41001",
+      "pais": "España"
+    },
+    "fecha_actualizacion": "2025-12-08T21:00:00Z"
+  },
+  {
+    "id": 5,
+    "nombre": "Laura",
+    "apellidos": "Gómez",
+    "email": "laura.gomez@example.com",
+    "password": "laura321",
+    "telefono": "+34600555666",
+
+
+    
+    "direccion": {
+      "calle": "Calle Serrano 5",
+      "ciudad": "Valencia",
+      "codigo_postal": "46001",
+      "pais": "España"
+    },
+    "fecha_actualizacion": "2025-12-07T21:00:00Z"
+  }
+]

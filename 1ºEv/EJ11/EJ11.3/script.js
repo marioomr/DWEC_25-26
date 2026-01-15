@@ -7,7 +7,7 @@ const alerts = document.getElementById('alerts');
 
 let products = [];
 let filteredProducts = [];
-
+/*
 function showAlert(msg, type = 'danger', timeout = 4000) {
   alerts.innerHTML = `<div class="alert alert-${type} alert-dismissible" role="alert">
     ${escapeHtml(msg)}
@@ -15,7 +15,7 @@ function showAlert(msg, type = 'danger', timeout = 4000) {
   </div>`;
   if (timeout) setTimeout(() => { if (alerts.firstChild) alerts.firstChild.remove(); }, timeout);
 }
-
+*/
 function escapeHtml(s) {
   return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'", '&#39;');
 }
@@ -48,7 +48,6 @@ function renderProducts(list) {
     col.className = 'col-sm-6 col-lg-4';
     col.innerHTML = `
       <div class="card h-100 shadow-sm">
-        <img src="${escapeHtml(p.imageUrl)}" class="card-img-top" alt="${escapeHtml(p.name)}" style="object-fit:cover;height:180px;">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">${escapeHtml(p.name)}</h5>
           <p class="card-text text-muted small mb-2">${escapeHtml(p.brand)} • ${escapeHtml(p.category)}</p>

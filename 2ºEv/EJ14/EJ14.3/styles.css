@@ -1,0 +1,10 @@
+body {
+  font-family: Arial;
+  padding: 20px;
+}
+
+#banner {
+  background: #ffd;
+  padding: 10px;
+  margin-bottom: 15px;
+}

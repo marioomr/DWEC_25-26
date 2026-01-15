@@ -1,0 +1,7 @@
+[
+  { "id": 1, "nombre": "Portátil", "precio": 800, "stock": 5, "categoria": "Electrónica" },
+  { "id": 2, "nombre": "Ratón", "precio": 20, "stock": 30, "categoria": "Electrónica" },
+  { "id": 3, "nombre": "Teclado", "precio": 45, "stock": 20, "categoria": "Electrónica" },
+  { "id": 4, "nombre": "Silla", "precio": 120, "stock": 10, "categoria": "Muebles" },
+  { "id": 5, "nombre": "Mesa", "precio": 200, "stock": 8, "categoria": "Muebles" }
+]

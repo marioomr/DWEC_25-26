@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "nombre": "Small logo T-shirt",
+    "imagen": "img/camiseta.jpg",
+    "descripcion": "Camiseta negra con pequeño logo en el pecho",
+    "precio": 54.99,
+    "stock": 10,
+    "marca_id": 1,
+    "categoria_id": 1,
+    "caracteristicas": {
+      "Material": "Algodón",
+      "Talla": "M"
+    }
+  },
+  {
+    "id": 2,
+    "nombre": "Box Logo Hooded Sweatshirt",
+    "imagen": "img/sudadera.jpg",
+    "descripcion": "Sudadera oversize de alta calidad",
+    "precio": 129.99,
+    "stock": 5,
+    "marca_id": 1,
+    "categoria_id": 2,
+    "caracteristicas": {
+      "Material": "Algodón",
+      "Color": "Negro"
+    }
+  },
+  {
+    "id": 3,
+    "nombre": "Vanson Leather Jacket",
+    "imagen": "img/chaqueta.jpg",
+    "descripcion": "Chaqueta de cuero auténtico",
+    "precio": 434.99,
+    "stock": 2,
+    "marca_id": 1,
+    "categoria_id": 3,
+    "caracteristicas": {
+      "Material": "Cuero",
+      "Color": "Negro"
+    }
+  },
+  {
+    "id": 4,
+    "nombre": "Basic Polo Shirt",
+    "imagen": "img/polo.jpg",
+    "descripcion": "Polo clásico de algodón",
+    "precio": 120.00,
+    "stock": 8,
+    "marca_id": 2,
+    "categoria_id": 1,
+    "caracteristicas": {
+      "Material": "Algodón",
+      "Color": "Negro"
+    }
+  },
+  {
+    "id": 5,
+    "nombre": "Classic Stone crewneck",
+    "imagen": "img/crewneck.jpg",
+    "descripcion": "Sudadera con el icónico parche",
+    "precio": 224.99,
+    "stock": 3,
+    "marca_id": 3,
+    "categoria_id": 2,
+    "caracteristicas": {
+      "Material": "Algodón",
+      "Color": "Gris"
+    }
+  },
+  {
+    "id": 6,
+    "nombre": "Logo Sweater",
+    "imagen": "img/jersey.jpg",
+    "descripcion": "Jersey con logo bordado",
+    "precio": 146.00,
+    "stock": 7,
+    "marca_id": 4,
+    "categoria_id": 2,
+    "caracteristicas": {
+      "Material": "Algodón",
+      "Color": "Verde"
+    }
+  }
+]
