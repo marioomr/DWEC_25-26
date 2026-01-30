@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Dashboard de Auditoría</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background: #f0f0f0;
+        }
+
+        .error {
+            background-color: #ffcccc;
+        }
+
+        #total {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h1>Dashboard de Auditoría</h1>
+    <div id="total">Consumo total: cargando...</div>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID Sesión</th>
+                <th>Usuario</th>
+                <th>Consumo (MB)</th>
+            </tr>
+        </thead>
+        <tbody id="tablaLogs"></tbody>
+    </table>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
