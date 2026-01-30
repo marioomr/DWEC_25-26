@@ -1,0 +1,14 @@
+[
+{"nombre":"Congreso de IA Oviedo","fecha":"2026-01-15T09:00:00","descripcion":"Evento inaugural del año en la ciudad."},
+{"nombre":"Actualización de Seguridad Q1","fecha":1772409600000,"descripcion":"Timestamp equivalente al 1 de marzo de 2026."},
+{"nombre":"Vacaciones de Semana Santa","fecha":{"año":2026,"mes":3,"dia":1},"descripcion":"Abril (Mes 3). Inicio de temporada alta."},
+{"nombre":"Prueba de Autocorrección (Abril 31)","fecha":{"año":2026,"mes":3,"dia":31},"descripcion":"Abril tiene 30 días; debe autocorregirse al 1 de mayo."},
+{"nombre":"Final de la Champions 2026","fecha":"May 30, 2026 21:00:00","descripcion":"Evento deportivo de gran magnitud."},
+{"nombre":"Solsticio de Verano","fecha":"2026-06-21T00:00:00","descripcion":"Día más largo del año."},
+{"nombre":"Lanzamiento Satélite JS-1","fecha":1788134400000,"descripcion":"Timestamp para el 30 de agosto de 2026."},
+{"nombre":"Conferencia Web Asturias","fecha":{"año":2026,"mes":9,"dia":12},"descripcion":"Octubre (Mes 9). Charlas sobre frameworks modernos."},
+{"nombre":"Black Friday 2026","fecha":"2026-11-27T00:00:00","descripcion":"Pico de tráfico máximo en servidores."},
+{"nombre":"Cena de Navidad Empresa","fecha":{"año":2026,"mes":11,"dia":18},"descripcion":"Diciembre (Mes 11). Ubicación por confirmar."},
+{"nombre":"Fin de Año 2026","fecha":"2026-12-31T23:59:59","descripcion":"Último evento del calendario actual."},
+{"nombre":"Revisión de Código Pasada","fecha":"2026-01-05T08:00:00","descripcion":"Evento que ya debería aparecer como 'Finalizado'."}
+]
