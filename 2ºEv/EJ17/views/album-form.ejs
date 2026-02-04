@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Álbum</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1><%= album ? 'Editar álbum' : 'Nuevo álbum' %></h1>
+
+<% if (error) { %>
+  <p style="color:red;"><%= error %></p>
+<% } %>
+
+<form action="/album/save" method="POST">
+
+  <% if (album?.id) { %>
+    <input type="hidden" name="id" value="<%= album.id %>">
+  <% } %>
+
+  <label>Título</label><br>
+  <input type="text" name="titulo" value="<%= album?.titulo || '' %>"><br>
+
+  <label>Año</label><br>
+  <input type="number" name="anio" value="<%= album?.anio || '' %>"><br>
+
+  <label>Artista</label><br>
+  <select name="artistaId">
+    <% artistas.forEach(a => { %>
+      <option value="<%= a.id %>"
+        <%= album?.artistaId == a.id ? 'selected' : '' %>>
+        <%= a.nombre %>
+      </option>
+    <% }) %>
+  </select><br>
+
+  <label>Foto (URL)</label><br>
+  <input type="text" name="foto" value="<%= album?.foto || '' %>"><br><br>
+
+  <button type="submit">Guardar</button>
+</form>
+
+<br>
+<a href="/albumes">Volver</a>
+
+</body>
+</html>

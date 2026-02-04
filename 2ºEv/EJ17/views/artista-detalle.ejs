@@ -1,0 +1,15 @@
+<h1><%= artista.nombre %></h1>
+<img src="<%= artista.foto %>">
+<p>País: <%= artista.pais %></p>
+<p>Género: <%= artista.genero %></p>
+<p>Año: <%= artista.fecha_formacion %></p>
+
+<h2>Álbumes</h2>
+<ul>
+  <% albums.forEach(a => { %>
+    <li>
+      <img src="<%= a.foto %>">
+      <%= a.titulo %> (<%= a.anio %>)
+    </li>
+  <% }) %>
+</ul>

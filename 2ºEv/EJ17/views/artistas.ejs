@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Artistas</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>Artistas</h1>
+
+<a href="/">Inicio</a> |
+<a href="/artista/form">Añadir artista</a>
+
+<hr>
+
+<div>
+  <% artistas.forEach(artista => { %>
+    <div style="margin-bottom:20px;">
+      <img src="<%= artista.foto %>" alt="">
+      <h3>
+        <a href="/artista/<%= artista.id %>">
+          <%= artista.nombre %>
+        </a>
+      </h3>
+      <a href="/artista/form/<%= artista.id %>">Editar</a> |
+      <a href="/artista/delete/<%= artista.id %>">Eliminar</a>
+    </div>
+  <% }) %>
+</div>
+
+</body>
+</html>

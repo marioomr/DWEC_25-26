@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Artista</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1><%= artista ? 'Editar artista' : 'Nuevo artista' %></h1>
+
+<form action="/artista/save" method="POST">
+
+  <% if (artista) { %>
+    <input type="hidden" name="id" value="<%= artista.id %>">
+  <% } %>
+
+  <label>Nombre</label><br>
+  <input type="text" name="nombre" value="<%= artista?.nombre || '' %>"><br>
+
+  <label>País</label><br>
+  <input type="text" name="pais" value="<%= artista?.pais || '' %>"><br>
+
+  <label>Género</label><br>
+  <input type="text" name="genero" value="<%= artista?.genero || '' %>"><br>
+
+  <label>Año formación</label><br>
+  <input type="number" name="fecha_formacion" value="<%= artista?.fecha_formacion || '' %>"><br>
+
+  <label>Foto (URL)</label><br>
+  <input type="text" name="foto" value="<%= artista?.foto || '' %>"><br><br>
+
+  <button type="submit">Guardar</button>
+</form>
+
+<br>
+<a href="/artistas">Volver</a>
+
+</body>
+</html>

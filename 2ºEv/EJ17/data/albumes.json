@@ -1,0 +1,22 @@
+[
+  { "id": 1, "titulo": "Sgt. Pepper's Lonely Hearts Club Band", "anio": 1967, "artistaId": 1, "foto": "https://picsum.photos/id/201/150/150" },
+  { "id": 2, "titulo": "Abbey Road", "anio": 1969, "artistaId": 1, "foto": "https://picsum.photos/id/202/150/150" },
+  { "id": 3, "titulo": "The Beatles (White Album)", "anio": 1968, "artistaId": 1, "foto": "https://picsum.photos/id/203/150/150" },
+  { "id": 4, "titulo": "Revolver", "anio": 1966, "artistaId": 1, "foto": "https://picsum.photos/id/204/150/150" },
+  { "id": 5, "titulo": "Led Zeppelin IV", "anio": 1971, "artistaId": 2, "foto": "https://picsum.photos/id/205/150/150" },
+  { "id": 6, "titulo": "Houses of the Holy", "anio": 1973, "artistaId": 2, "foto": "https://picsum.photos/id/206/150/150" },
+  { "id": 7, "titulo": "Physical Graffiti", "anio": 1975, "artistaId": 2, "foto": "https://picsum.photos/id/207/150/150" },
+  { "id": 8, "titulo": "The Dark Side of the Moon", "anio": 1973, "artistaId": 3, "foto": "https://picsum.photos/id/208/150/150" },
+  { "id": 9, "titulo": "Wish You Were Here", "anio": 1975, "artistaId": 3, "foto": "https://picsum.photos/id/209/150/150" },
+  { "id": 10, "titulo": "The Wall", "anio": 1979, "artistaId": 3, "foto": "https://picsum.photos/id/210/150/150" },
+  { "id": 11, "titulo": "Animals", "anio": 1977, "artistaId": 3, "foto": "https://picsum.photos/id/211/150/150" },
+  { "id": 12, "titulo": "A Night at the Opera", "anio": 1975, "artistaId": 4, "foto": "https://picsum.photos/id/212/150/150" },
+  { "id": 13, "titulo": "News of the World", "anio": 1977, "artistaId": 4, "foto": "https://picsum.photos/id/213/150/150" },
+  { "id": 14, "titulo": "Jazz", "anio": 1978, "artistaId": 4, "foto": "https://picsum.photos/id/214/150/150" },
+  { "id": 15, "titulo": "Nevermind", "anio": 1991, "artistaId": 5, "foto": "https://picsum.photos/id/215/150/150" },
+  { "id": 16, "titulo": "In Utero", "anio": 1993, "artistaId": 5, "foto": "https://picsum.photos/id/216/150/150" },
+  { "id": 17, "titulo": "OK Computer", "anio": 1997, "artistaId": 6, "foto": "https://picsum.photos/id/217/150/150" },
+  { "id": 18, "titulo": "Kid A", "anio": 2000, "artistaId": 6, "foto": "https://picsum.photos/id/218/150/150" },
+  { "id": 19, "titulo": "In Rainbows", "anio": 2007, "artistaId": 6, "foto": "https://picsum.photos/id/219/150/150" },
+  { "id": 20, "titulo": "A Moon Shaped Pool", "anio": 2016, "artistaId": 6, "foto": "https://picsum.photos/id/220/150/150" }
+]
