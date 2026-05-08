@@ -28,7 +28,9 @@ const portfolioRoutes = require('./routes/portfolioRoutes');
 app.use('/', authRoutes);
 app.use('/', dashboardRoutes);
 app.use('/', portfolioRoutes);
-
+app.get('/', (req, res) => {
+  res.redirect('/login');
+});
 app.listen(3000, () => {
   console.log('Server running on http://localhost:3000');
 });
