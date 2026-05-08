@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Libros prestados</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <a href="/">Volver al catálogo</a>
+
+    <h1>Libros prestados</h1>
+
+    <% const fmt = (d) => { if (!d) return '—'; const dt = (d instanceof Date) ? d : new Date(d); if (Number.isNaN(dt.getTime())) return '—'; return dt.toISOString().split('T')[0]; }; %>
+
+    <% if (!libros || libros.length === 0) { %>
+        <p>No hay libros prestados.</p>
+    <% } else { %>
+        <table>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Prestatario</th>
+                <th>Fecha de devolución</th>
+            </tr>
+            <% libros.forEach(libro => { %>
+                <tr>
+                    <td><a href="/libro/<%= libro.id %>"><%= libro.titulo %></a></td>
+                    <td><%= libro.autor %></td>
+                    <td><a href="/prestamos/usuario?nombre=<%= encodeURIComponent(libro.nombre_prestatario) %>"><%= libro.nombre_prestatario %></a></td>
+                    <td><%= fmt(libro.fecha_devolucion) %></td>
+                </tr>
+            <% }) %>
+        </table>
+    <% } %>
+</body>
+
+</html>

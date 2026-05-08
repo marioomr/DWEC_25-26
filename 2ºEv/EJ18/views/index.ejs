@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Biblioteca</title>
+
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+
+<body>
+
+    <h1>Catálogo Biblioteca</h1>
+
+    <div class="links">
+
+        <a href="/prestados">
+            Libros Prestados
+        </a>
+
+        <a href="/vencidos">
+            Libros Vencidos
+        </a>
+
+    </div>
+
+    <table>
+
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Estado</th>
+        </tr>
+
+        <% libros.forEach(libro => { %>
+
+            <tr>
+
+                <td>
+
+                    <a href="/libro/<%= libro.id %>">
+                        <%= libro.titulo %>
+                    </a>
+
+                </td>
+
+                <td>
+                    <%= libro.autor %>
+                </td>
+
+                <td>
+                    <%= libro.estado %>
+                </td>
+
+            </tr>
+
+        <% }) %>
+
+    </table>
+
+</body>
+
+</html>

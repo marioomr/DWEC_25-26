@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "titulo": "Cien años de soledad",
+    "autor": "Gabriel García Márquez",
+    "isbn": "978-84-376-0494-7",
+    "estado": "Disponible"
+  },
+  {
+    "id": 2,
+    "titulo": "Dune",
+    "autor": "Frank Herbert",
+    "isbn": "978-84-450-7473-8",
+    "estado": "Prestado"
+  },
+  {
+    "id": 3,
+    "titulo": "El Señor de los Anillos",
+    "autor": "J.R.R. Tolkien",
+    "isbn": "978-84-450-7179-9",
+    "estado": "Disponible"
+  },
+  {
+    "id": 4,
+    "titulo": "Sapiens: De animales a dioses",
+    "autor": "Yuval Noah Harari",
+    "isbn": "978-84-9992-622-2",
+    "estado": "Disponible"
+  },
+  {
+    "id": 5,
+    "titulo": "Steve Jobs",
+    "autor": "Walter Isaacson",
+    "isbn": "978-84-9989-422-7",
+    "estado": "Prestado"
+  },
+  {
+    "id": 6,
+    "titulo": "Clean Code",
+    "autor": "Robert C. Martin",
+    "isbn": "978-0-13-235088-4",
+    "estado": "Disponible"
+  },
+  {
+    "id": 7,
+    "titulo": "La sombra del viento",
+    "autor": "Carlos Ruiz Zafón",
+    "isbn": "978-84-08-05793-0",
+    "estado": "Disponible"
+  },
+  {
+    "id": 8,
+    "titulo": "Meditaciones",
+    "autor": "Marco Aurelio",
+    "isbn": "978-84-249-3679-0",
+    "estado": "Prestado"
+  },
+  {
+    "id": 9,
+    "titulo": "Veinte poemas de amor y una canción desesperada",
+    "autor": "Pablo Neruda",
+    "isbn": "978-84-9759-335-3",
+    "estado": "Disponible"
+  },
+  {
+    "id": 10,
+    "titulo": "Watchmen",
+    "autor": "Alan Moore",
+    "isbn": "978-84-8431-772-5",
+    "estado": "Prestado"
+  }
+]

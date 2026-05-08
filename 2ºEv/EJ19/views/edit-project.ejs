@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+
+<h1>Editar Proyecto</h1>
+
+<form action="/edit-project/<%= project.id %>" method="POST">
+
+  <input type="text" name="title" value="<%= project.title %>" required>
+
+  <textarea name="description"><%= project.description %></textarea>
+
+  <input type="text" name="repo_url" value="<%= project.repo_url %>">
+
+  <input type="text" name="live_url" value="<%= project.live_url %>">
+
+  <button type="submit">Actualizar</button>
+
+</form>
+
+<%- include('partials/footer') %>

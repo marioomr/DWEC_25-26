@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title><%= libro.titulo %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <a href="/">Volver al catálogo</a>
+
+    <h1><%= libro.titulo %></h1>
+
+    <p><strong>Autor:</strong> <%= libro.autor %></p>
+    <p><strong>ISBN:</strong> <%= libro.isbn %></p>
+    <p><strong>Estado:</strong> <%= libro.estado %></p>
+
+    <% const fmt = (d) => { if (!d) return '—'; const dt = (d instanceof Date) ? d : new Date(d); if (Number.isNaN(dt.getTime())) return '—'; return dt.toISOString().split('T')[0]; }; %>
+
+    <% if (libro.estado === 'Disponible') { %>
+        <a class="button" href="/prestamo/formulario/<%= libro.id %>">Prestar Libro</a>
+    <% } %>
+
+    <% if (libro.estado === 'Prestado') { %>
+        <div class="prestamoActivo">
+            <h3>Préstamo activo</h3>
+            <p><strong>Prestatario:</strong> <%= prestamoActivo && prestamoActivo.nombre_prestatario ? prestamoActivo.nombre_prestatario : '—' %></p>
+            <p><strong>Vence:</strong> <%= prestamoActivo ? fmt(prestamoActivo.fecha_devolucion) : '—' %></p>
+            <form method="POST" action="/prestamo/devolver/<%= libro.id %>">
+                <button type="submit">Registrar Devolución</button>
+            </form>
+        </div>
+    <% } %>
+
+    <h2>Historial de Préstamos</h2>
+
+    <% if (!historial || historial.length === 0) { %>
+        <p>No hay préstamos registrados para este libro.</p>
+    <% } else { %>
+        <table>
+            <tr>
+                <th>Prestatario</th>
+                <th>Fecha préstamo</th>
+                <th>Fecha devolución</th>
+                <th>Fecha entrega</th>
+            </tr>
+            <% historial.forEach(p => { %>
+                <tr>
+                    <td><%= p.nombre_prestatario || '—' %></td>
+                    <td><%= fmt(p.fecha_prestamo) %></td>
+                    <td><%= fmt(p.fecha_devolucion) %></td>
+                    <td><%= fmt(p.fecha_entrega) %></td>
+                </tr>
+            <% }) %>
+        </table>
+    <% } %>
+
+</body>
+
+</html>

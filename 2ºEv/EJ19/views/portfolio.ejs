@@ -1,0 +1,51 @@
+<%- include('partials/header') %>
+
+<h1><%= portfolioUser.username %></h1>
+
+<p><%= portfolioUser.bio %></p>
+
+<p>Email: <%= portfolioUser.email %></p>
+
+<hr>
+
+<h2>Redes Sociales</h2>
+
+<ul>
+  <% links.forEach(link => { %>
+
+    <li>
+      <strong><%= link.platform %></strong>
+      -
+      <a href="<%= link.url %>"><%= link.url %></a>
+    </li>
+
+  <% }) %>
+</ul>
+
+<hr>
+
+<h2>Proyectos</h2>
+
+<% projects.forEach(project => { %>
+
+<div>
+  <h3><%= project.title %></h3>
+
+  <p><%= project.description %></p>
+
+  <a href="<%= project.repo_url %>">Repositorio</a>
+
+  <a href="<%= project.live_url %>">Demo</a>
+</div>
+
+<hr>
+
+<% }) %>
+
+<% if(sessionUser && sessionUser.id === portfolioUser.id){ %>
+
+  <a href="/dashboard">Gestionar mi Portafolio</a>
+
+<% } %>
+
+<%- include('partials/footer') %>

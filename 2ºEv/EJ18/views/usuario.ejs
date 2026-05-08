@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Préstamos de <%= nombre %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <a href="/prestados">Volver a prestados</a>
+
+    <h1>Libros prestados a: <%= nombre %></h1>
+
+    <% const fmt = (d) => { if (!d) return '—'; const dt = (d instanceof Date) ? d : new Date(d); if (Number.isNaN(dt.getTime())) return '—'; return dt.toISOString().split('T')[0]; }; %>
+
+    <% if (!prestamos || prestamos.length === 0) { %>
+        <p>Este usuario no tiene préstamos activos.</p>
+    <% } else { %>
+        <table>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Fecha de devolución</th>
+            </tr>
+            <% prestamos.forEach(p => { %>
+                <tr>
+                    <td><a href="/libro/<%= p.id %>"><%= p.titulo %></a></td>
+                    <td><%= p.autor %></td>
+                    <td><%= fmt(p.fecha_devolucion) %></td>
+                </tr>
+            <% }) %>
+        </table>
+    <% } %>
+</body>
+
+</html>
