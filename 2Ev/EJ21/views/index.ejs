@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Usuarios</title>
+</head>
+<body>
+
+<h1>Gestión Usuarios</h1>
+
+<form action="/crear" method="POST" enctype="multipart/form-data">
+
+  <input name="nombre" placeholder="Nombre" required>
+  <input name="apellidos" placeholder="Apellidos" required>
+  <input name="localidad" placeholder="Localidad">
+  <input type="file" name="imagen" required>
+
+  <button>Crear</button>
+</form>
+
+<hr>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Apellidos</th>
+    <th>Localidad</th>
+    <th>Imagen</th>
+    <th>Acción</th>
+  </tr>
+
+  <% alumnos.forEach(a => { %>
+    <tr>
+      <td><%= a.id %></td>
+      <td><%= a.nombre %></td>
+      <td><%= a.apellidos %></td>
+      <td><%= a.localidad %></td>
+      <td><%= a.imagen %></td>
+      <td>
+        <a href="/eliminar/<%= a.id %>">Eliminar</a>
+      </td>
+    </tr>
+  <% }) %>
+
+</table>
+
+</body>
+</html>
