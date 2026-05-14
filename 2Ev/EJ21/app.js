@@ -17,6 +17,7 @@ const {
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
 const db = mysql.createConnection({
@@ -180,8 +181,13 @@ app.get('/eliminar/:id', (req, res) => {
   });
 });
 
-const PORT = process.env.PORT || 3000;
+// En Vercel: se exporta el handler y NO se llama a listen().
+// En local: sí levantamos el servidor.
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log('Servidor en puerto ' + PORT);
+  });
+}
 
-app.listen(PORT, () => {
-  console.log("Servidor en puerto " + PORT);
-});
+module.exports = app;
