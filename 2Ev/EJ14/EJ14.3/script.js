@@ -17,8 +17,8 @@ if (ultima) {
   const banner = document.createElement('div')
   banner.id = 'banner'
   banner.innerHTML = `
-    Bienvenido de nuevo. Última visita: ${decodeURIComponent(ultima)}
-    <button>X</button>
+    Bienvenido de nuevo. Tu última visita fue el ${decodeURIComponent(ultima)}
+    <button>Cerrar</button>
   `
   banner.querySelector('button').onclick = () => banner.remove()
   document.body.prepend(banner)

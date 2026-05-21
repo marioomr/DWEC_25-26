@@ -22,5 +22,11 @@
     "nombre": "Laura Fernández",
     "email": "laura.fernandez@example.com",
     "fechaRegistro": "2023-04-05"
+  },
+  {
+    "id": 5,
+    "nombre": "Miguel Romero",
+    "email": "miguel.romero@example.com",
+    "fechaRegistro": "2023-05-18"
   }
 ]

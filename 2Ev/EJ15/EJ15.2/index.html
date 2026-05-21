@@ -12,16 +12,20 @@
 <div class="board">
   <div class="column" data-status="todo">
     <h2>Por hacer</h2>
-    <div class="card" draggable="true" id="task-1">Tarea 1</div>
-    <div class="card" draggable="true" id="task-2">Tarea 2</div>
+    <div class="card" draggable="true" id="task-1" data-status="todo">Diseñar interfaz</div>
+    <div class="card" draggable="true" id="task-2" data-status="todo">Implementar backend</div>
+    <div class="card" draggable="true" id="task-3" data-status="todo">Escribir tests</div>
+    <div class="card" draggable="true" id="task-4" data-status="todo">Documentación</div>
   </div>
 
   <div class="column" data-status="progress">
     <h2>En progreso</h2>
+    <div class="card" draggable="true" id="task-5" data-status="progress">Revisar código</div>
   </div>
 
   <div class="column" data-status="done">
     <h2>Finalizado</h2>
+    <div class="card" draggable="true" id="task-6" data-status="done">Deploy a producción</div>
   </div>
 </div>
 

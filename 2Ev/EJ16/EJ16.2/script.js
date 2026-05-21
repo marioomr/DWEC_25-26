@@ -16,7 +16,7 @@ function crearFecha(entrada) {
   ) {
     fecha = new Date(
       entrada.año,
-      entrada.mes,
+      entrada.mes - 1,
       entrada.dia
     );
   }
@@ -44,6 +44,7 @@ async function cargarEventos() {
     const fecha = crearFecha(e.fecha);
     if (fecha) {
       e.fechaObj = fecha;
+      e.intervaloId = null;
       eventos.push(e);
     }
   });
@@ -52,10 +53,17 @@ async function cargarEventos() {
 
   const contenedor = document.getElementById("eventos");
 
-  eventos.forEach(evento => {
+  function renderizarEvento(evento) {
+    let eventoDiv = document.getElementById("evento-" + eventos.indexOf(evento));
+    
+    if (!eventoDiv) {
+      eventoDiv = document.createElement("div");
+      eventoDiv.id = "evento-" + eventos.indexOf(evento);
+      eventoDiv.className = "evento";
+      contenedor.appendChild(eventoDiv);
+    }
 
-    const div = document.createElement("div");
-    div.className = "evento";
+    eventoDiv.innerHTML = "";
 
     const titulo = document.createElement("h3");
     titulo.textContent = evento.nombre;
@@ -77,14 +85,18 @@ async function cargarEventos() {
 
     boton.addEventListener("click", () => {
       const dias = Number(inputDias.value);
-      if (!isNaN(dias)) {
+      if (!isNaN(dias) && dias > 0) {
+        if (evento.intervaloId) {
+          clearInterval(evento.intervaloId);
+          evento.intervaloId = null;
+        }
         evento.fechaObj = posponerEvento(evento.fechaObj, dias);
         inputDias.value = "";
-        actualizar();
+        renderizarEvento(evento);
       }
     });
 
-    div.append(
+    eventoDiv.append(
       titulo,
       descripcion,
       fechaTexto,
@@ -92,8 +104,6 @@ async function cargarEventos() {
       inputDias,
       boton
     );
-
-    contenedor.appendChild(div);
 
     function actualizar() {
       fechaTexto.textContent =
@@ -103,12 +113,12 @@ async function cargarEventos() {
       const diferencia = evento.fechaObj.getTime() - ahora;
 
       if (diferencia <= 0) {
-        contador.textContent = "Evento finalizado";
-        div.classList.add("finalizado");
+        contador.textContent = "FINALIZADO";
+        eventoDiv.classList.add("finalizado");
         return;
       }
 
-      div.classList.remove("finalizado");
+      eventoDiv.classList.remove("finalizado");
 
       const totalSeg = Math.floor(diferencia / 1000);
 
@@ -118,12 +128,19 @@ async function cargarEventos() {
       const segundos = totalSeg % 60;
 
       contador.textContent =
-        `${dias} : ${horas} : ${minutos} : ${segundos}`;
+        `${dias}d ${horas}h ${minutos}m ${segundos}s`;
     }
 
     actualizar();
-    setInterval(actualizar, 1000);
-  });
+    
+    if (evento.intervaloId) {
+      clearInterval(evento.intervaloId);
+    }
+    
+    evento.intervaloId = setInterval(actualizar, 1000);
+  }
+
+  eventos.forEach(renderizarEvento);
 }
 
 cargarEventos();

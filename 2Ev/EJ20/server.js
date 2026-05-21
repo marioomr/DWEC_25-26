@@ -19,7 +19,21 @@ app.use("/api/autores", autoresRoutes)
 app.use("/api/libros", librosRoutes)
 
 app.get("/", (req, res) => {
-    res.send("API Librería funcionando")
+    res.send(`
+        <h1>API Librería funcionando</h1>
+        <ul>
+            <li><a href="/api/autores">Ver autores</a></li>
+            <li><a href="/api/libros">Ver libros</a></li>
+        </ul>
+    `)
 })
+
+const PORT = process.env.PORT || 3000
+
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Servidor en http://localhost:${PORT}`)
+    })
+}
 
 module.exports = app

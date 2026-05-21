@@ -28,5 +28,11 @@
     "usuarioId": 2,
     "fecha": "2023-11-15",
     "estado": "Procesando"
+  },
+  {
+    "id": 1006,
+    "usuarioId": 5,
+    "fecha": "2023-11-18",
+    "estado": "Enviado"
   }
 ]

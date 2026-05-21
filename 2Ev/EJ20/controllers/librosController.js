@@ -22,7 +22,9 @@ const obtenerLibros = async (req, res) => {
 
 const obtenerLibroPorId = async (req, res) => {
     try {
-        const libro = await Libro.findById(req.params.id)
+        const libro = await Libro.findOne({
+            referencia: req.params.id
+        })
 
         if (!libro) {
             return res.status(404).json({
@@ -54,8 +56,8 @@ const crearLibro = async (req, res) => {
 
 const actualizarLibro = async (req, res) => {
     try {
-        const libro = await Libro.findByIdAndUpdate(
-            req.params.id,
+        const libro = await Libro.findOneAndUpdate(
+            { referencia: req.params.id },
             req.body,
             { new: true }
         )
@@ -76,7 +78,9 @@ const actualizarLibro = async (req, res) => {
 
 const eliminarLibro = async (req, res) => {
     try {
-        const libro = await Libro.findByIdAndDelete(req.params.id)
+        const libro = await Libro.findOneAndDelete({
+            referencia: req.params.id
+        })
 
         if (!libro) {
             return res.status(404).json({

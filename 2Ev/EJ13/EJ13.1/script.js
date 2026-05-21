@@ -1,7 +1,8 @@
 
 
 
-const API_URL = 'https://crudcrud.com/api/c629bac64a364e02a59092bfe10d4dbc/users';
+const CRUDCRUD_ID = '0634417fbc494b108c5c6a6dccd6a55d';
+const API_URL = `https://crudcrud.com/api/${CRUDCRUD_ID}/users`;
 
 const initialUsers = [
   {"firstName":"Alice","lastName":"Smith","email":"alice.smith@example.com","picture":"https://randomuser.me/api/portraits/women/1.jpg"},
@@ -30,6 +31,13 @@ const cancelEdit = document.getElementById('cancel-edit');
 
 let editingId = null;
 
+function checkResponse(response){
+  if(!response.ok){
+    throw new Error('Error HTTP ' + response.status);
+  }
+  return response;
+}
+
 function showMessage(text, isError){
   mensajes.textContent = text || '';
   mensajes.style.color = isError ? '#d00' : '#080';
@@ -40,12 +48,12 @@ function showMessage(text, isError){
 
 function fetchUsers(){
   loading.style.display = '';
-  fetch(API_URL).then(r => r.json()).then(data => {
+  fetch(API_URL).then(checkResponse).then(r => r.json()).then(data => {
     loading.style.display = 'none';
     renderUsers(data);
   }).catch(err => {
     loading.style.display = 'none';
-    showMessage('Error cargando usuarios', true);
+    showMessage('Error cargando usuarios. Revisa que el endpoint de CrudCrud siga activo.', true);
   });
 }
 
@@ -64,25 +72,30 @@ function renderUsers(users){
   });
 }
 
-btnCargarInicial.addEventListener('click', () => {
+function uploadInitialUsers(users){
   showMessage('Subiendo usuarios iniciales...');
-  initialUsers.forEach(user => {
+  Promise.all(users.map(user =>
     fetch(API_URL, {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify(user)
-    }).then(r => r.json()).then(()=> {
-      fetchUsers();
-    }).catch(()=> {
-      showMessage('Error subiendo algunos usuarios', true);
-    });
+    }).then(checkResponse).then(r => r.json())
+  )).then(() => {
+    showMessage('Usuarios iniciales cargados');
+    fetchUsers();
+  }).catch(() => {
+    showMessage('Error subiendo usuarios. Revisa que el endpoint de CrudCrud siga activo.', true);
   });
+}
+
+btnCargarInicial.addEventListener('click', () => {
+  uploadInitialUsers(initialUsers);
 });
 
 tablaBody.addEventListener('click', (e) => {
   if(e.target.classList.contains('edit')){
     const id = e.target.dataset.id;
-    fetch(API_URL + '/' + id).then(r=>r.json()).then(u=>{
+    fetch(API_URL + '/' + id).then(checkResponse).then(r=>r.json()).then(u=>{
       editingId = id;
       firstName.value = u.firstName || '';
       lastName.value = u.lastName || '';
@@ -97,7 +110,7 @@ tablaBody.addEventListener('click', (e) => {
     if(!confirm('¿Estás seguro?')) return;
     const row = e.target.closest('tr');
     row.remove();
-    fetch(API_URL + '/' + id, { method:'DELETE' }).then(()=> {
+    fetch(API_URL + '/' + id, { method:'DELETE' }).then(checkResponse).then(()=> {
       showMessage('Usuario eliminado');
       fetchUsers();
     }).catch(()=> {
@@ -131,7 +144,7 @@ form.addEventListener('submit', (e) => {
       method: 'PUT',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify(payload)
-    }).then(()=> {
+    }).then(checkResponse).then(()=> {
       showMessage('Usuario actualizado');
       editingId = null;
       form.reset();
@@ -148,7 +161,7 @@ form.addEventListener('submit', (e) => {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify(payload)
-    }).then(()=> {
+    }).then(checkResponse).then(()=> {
       showMessage('Usuario añadido');
       fetchUsers();
     }).catch(()=> {

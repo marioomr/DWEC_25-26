@@ -5,46 +5,87 @@
     <meta charset="UTF-8" />
     <title>Dashboard de Auditoría</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
+            background-color: #f5f5f5;
         }
 
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        th,
-        td {
-            border: 1px solid #ccc;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background: #f0f0f0;
-        }
-
-        .error {
-            background-color: #ffcccc;
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
         }
 
         #total {
             font-size: 18px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-left: 4px solid #28a745;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #total span {
+            color: #28a745;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            color: #333;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        tbody tr.error {
+            background-color: #f8d7da;
+        }
+
+        tbody tr.error td {
+            color: #721c24;
+        }
+
+        tbody tr.error:hover {
+            background-color: #f5c6cb;
         }
     </style>
 </head>
 
 <body>
 
-
     <h1>Dashboard de Auditoría</h1>
-    <div id="total">Consumo total: cargando...</div>
-
+    <div id="total">Consumo total: <span>cargando...</span></div>
 
     <table>
         <thead>
@@ -56,7 +97,6 @@
         </thead>
         <tbody id="tablaLogs"></tbody>
     </table>
-
 
     <script src="script.js"></script>
 </body>

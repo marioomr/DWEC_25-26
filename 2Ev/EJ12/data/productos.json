@@ -38,5 +38,13 @@
     "precio": 65.75,
     "stock": 60,
     "categoria": "Periféricos"
+  },
+  {
+    "id": 106,
+    "nombre": "Auriculares Bluetooth",
+    "sku": "AUR-BT-006",
+    "precio": 79.90,
+    "stock": 35,
+    "categoria": "Audio"
   }
 ]

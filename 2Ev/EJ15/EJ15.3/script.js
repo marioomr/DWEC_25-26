@@ -1,33 +1,79 @@
-const map = L.map('map').setView([0, 0], 2);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+const map = L.map('map').setView([40, 0], 3);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  maxZoom: 19
+}).addTo(map);
 
 let points = [];
-let polyline = L.polyline([]).addTo(map);
+let polyline = L.polyline([], { color: '#007bff', weight: 3, opacity: 0.8 }).addTo(map);
 let totalDistance = 0;
 
 document.getElementById('add').addEventListener('click', async () => {
-  const lat = parseFloat(document.getElementById('lat').value);
-  const lng = parseFloat(document.getElementById('lng').value);
+  const latInput = document.getElementById('lat');
+  const lngInput = document.getElementById('lng');
 
-  const res = await fetch(
-    `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
-  );
-  const data = await res.json();
+  const lat = parseFloat(latInput.value);
+  const lng = parseFloat(lngInput.value);
 
-  points.push([lat, lng]);
-  L.marker([lat, lng]).addTo(map);
-
-  polyline.addLatLng([lat, lng]);
-  map.fitBounds(polyline.getBounds());
-
-  if (points.length > 1) {
-    const prev = points[points.length - 2];
-    totalDistance += haversine(prev[0], prev[1], lat, lng);
+  if (isNaN(lat) || isNaN(lng)) {
+    alert('Por favor, introduce valores numéricos válidos.');
+    return;
   }
 
-  document.getElementById('distance').textContent = totalDistance.toFixed(2);
-  document.getElementById('points').innerHTML +=
-    `<li>${lat}, ${lng} - ${data.display_name}</li>`;
+  if (lat < -90 || lat > 90) {
+    alert('La latitud debe estar entre -90 y 90.');
+    return;
+  }
+
+  if (lng < -180 || lng > 180) {
+    alert('La longitud debe estar entre -180 y 180.');
+    return;
+  }
+
+  try {
+    const res = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`,
+      {
+        headers: {
+          'User-Agent': 'RutePlanner/1.0 (ejercicio-dwec)'
+        }
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error(`Error en la API: ${res.status}`);
+    }
+
+    const data = await res.json();
+
+    points.push([lat, lng]);
+    const marker = L.marker([lat, lng])
+      .bindPopup(`<b>${data.address.city || data.address.town || 'Ubicación'}</b><br>${lat.toFixed(4)}, ${lng.toFixed(4)}`)
+      .addTo(map);
+
+    polyline.setLatLngs(points);
+
+    if (points.length > 1) {
+      const prev = points[points.length - 2];
+      totalDistance += haversine(prev[0], prev[1], lat, lng);
+    }
+
+    document.getElementById('distance').textContent = totalDistance.toFixed(2);
+
+    const address = data.display_name.split(',').slice(0, 3).join(',');
+    document.getElementById('points').innerHTML +=
+      `<li><strong>${lat.toFixed(4)}, ${lng.toFixed(4)}</strong> - ${address}</li>`;
+
+    map.fitBounds(polyline.getBounds().pad(0.1));
+
+    latInput.value = '';
+    lngInput.value = '';
+    latInput.focus();
+
+  } catch (error) {
+    alert(`Error al obtener la ubicación: ${error.message}`);
+  }
 });
 
 function haversine(lat1, lon1, lat2, lon2) {

@@ -1,6 +1,7 @@
 const dropZone = document.getElementById('drop-zone');
 const preview = document.getElementById('preview');
 const downloads = document.getElementById('downloads');
+const processBtn = document.getElementById('process');
 
 let images = [];
 
@@ -27,18 +28,29 @@ dropZone.addEventListener('drop', e => {
 
       const img = document.createElement('img');
       img.src = reader.result;
+      img.title = file.name;
       preview.appendChild(img);
     };
     reader.readAsDataURL(file);
   });
 });
 
-document.getElementById('process').addEventListener('click', () => {
+processBtn.addEventListener('click', () => {
+  if (images.length === 0) {
+    alert('Por favor, carga al menos una imagen antes de procesar.');
+    return;
+  }
+
   downloads.innerHTML = '';
+  processBtn.disabled = true;
+  processBtn.textContent = 'Procesando...';
 
   const watermark = document.getElementById('watermark').value;
   const maxWidth = parseInt(document.getElementById('maxWidth').value);
   const format = document.getElementById('format').value;
+  const quality = format === 'image/jpeg' ? 0.9 : 1;
+
+  let processed = 0;
 
   images.forEach(({ file, src }) => {
     const img = new Image();
@@ -57,10 +69,18 @@ document.getElementById('process').addEventListener('click', () => {
       ctx.drawImage(img, 0, 0, width, height);
 
       if (watermark) {
-        ctx.font = `${Math.floor(width / 20)}px Arial`;
-        ctx.fillStyle = 'rgba(255,255,255,0.7)';
+        const fontSize = Math.max(16, Math.floor(width / 15));
+        ctx.font = `bold ${fontSize}px Arial`;
         ctx.textAlign = 'center';
-        ctx.fillText(watermark, width / 2, height - 20);
+        ctx.textBaseline = 'middle';
+
+        const textY = height - fontSize - 15;
+
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+        ctx.fillRect(width / 2 - 150, textY - fontSize / 2 - 5, 300, fontSize + 10);
+
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.fillText(watermark, width / 2, textY);
       }
 
       canvas.toBlob(blob => {
@@ -73,7 +93,13 @@ document.getElementById('process').addEventListener('click', () => {
         a.textContent = a.download;
 
         downloads.appendChild(a);
-      }, format, 0.9);
+
+        processed++;
+        if (processed === images.length) {
+          processBtn.disabled = false;
+          processBtn.textContent = 'Procesar';
+        }
+      }, format, quality);
     };
   });
 });

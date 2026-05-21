@@ -2,18 +2,20 @@ let db = null
 
 const estado = document.getElementById('estado')
 const btnActualizar = document.getElementById('actualizar')
-btnActualizar.disabled = true   // 👈 desactivado hasta que DB esté lista
 
-/*************************
- * Abrir IndexedDB
- *************************/
-const request = indexedDB.open('tiendaDB', 2)
+btnActualizar.disabled = true
+
+const request = indexedDB.open('tiendaDB', 3)
 
 request.onupgradeneeded = e => {
   const database = e.target.result
 
   if (!database.objectStoreNames.contains('productos')) {
     database.createObjectStore('productos', { keyPath: 'id' })
+  }
+
+  if (!database.objectStoreNames.contains('carrito')) {
+    database.createObjectStore('carrito', { keyPath: 'productoId' })
   }
 }
 
@@ -27,9 +29,6 @@ request.onerror = () => {
   estado.textContent = 'Error abriendo IndexedDB'
 }
 
-/*************************
- * LÓGICA PRINCIPAL (a,b,c,d)
- *************************/
 function cargarCatalogo() {
   estado.textContent = 'Comprobando catálogo local...'
 
@@ -40,36 +39,42 @@ function cargarCatalogo() {
   req.onsuccess = () => {
     if (req.result.length > 0) {
       estado.textContent = 'Productos cargados desde IndexedDB'
-      mostrarProductos(req.result)     // c
-    } else {
-      cargarDesdeServidor()            // d
+      mostrarProductos(req.result)
+      return
     }
+    cargarDesdeServidor()
+  }
+
+  req.onerror = () => {
+    estado.textContent = 'Error leyendo IndexedDB'
   }
 }
 
-/*************************
- * FETCH + GUARDAR
- *************************/
 function cargarDesdeServidor() {
   estado.textContent = 'Cargando desde servidor...'
 
   fetch('data/productos.json')
-    .then(r => r.json())
+    .then(res => res.json())
     .then(data => {
       const tx = db.transaction('productos', 'readwrite')
       const store = tx.objectStore('productos')
+
       data.forEach(p => store.put(p))
 
       tx.oncomplete = () => {
         estado.textContent = 'Catálogo guardado en IndexedDB'
         mostrarProductos(data)
       }
+
+      tx.onerror = () => {
+        estado.textContent = 'Error guardando catálogo'
+      }
+    })
+    .catch(() => {
+      estado.textContent = 'Error cargando productos'
     })
 }
 
-/*************************
- * MOSTRAR PRODUCTOS
- *************************/
 function mostrarProductos(lista) {
   const cont = document.getElementById('productos')
   cont.innerHTML = ''
@@ -78,19 +83,17 @@ function mostrarProductos(lista) {
     const div = document.createElement('div')
     div.className = 'card'
     div.innerHTML = `
-      <strong>${p.nombre}</strong><br>
-      Precio: ${p.precio} €<br>
-      Categoría: ${p.categoria}
+      <h3>${p.nombre}</h3>
+      <p>Precio: ${p.precio} €</p>
+      <p>Stock: ${p.stock}</p>
+      <p>Categoría: ${p.categoria}</p>
     `
     cont.appendChild(div)
   })
 }
 
-/*************************
- * FORZAR ACTUALIZACIÓN
- *************************/
-btnActualizar.onclick = () => {
-  if (!db) return   // seguridad extra
+btnActualizar.addEventListener('click', () => {
+  if (!db) return
 
   estado.textContent = 'Forzando actualización...'
 
@@ -98,4 +101,7 @@ btnActualizar.onclick = () => {
   tx.objectStore('productos').clear()
 
   tx.oncomplete = cargarDesdeServidor
-}
+  tx.onerror = () => {
+    estado.textContent = 'Error borrando el catálogo'
+  }
+})

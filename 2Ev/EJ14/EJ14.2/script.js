@@ -1,11 +1,14 @@
 let productos = []
 
 fetch('data/productos.json')
-  .then(r => r.json())
+  .then(res => res.json())
   .then(data => {
     productos = data
     mostrarProductos()
     mostrarCarrito()
+  })
+  .catch(() => {
+    document.getElementById('productos').textContent = 'Error cargando productos'
   })
 
 function obtenerCarrito() {
@@ -32,26 +35,40 @@ function mostrarProductos() {
   cont.innerHTML = ''
 
   productos.forEach(p => {
-    cont.innerHTML += `
-      <div class="card">
-        ${p.nombre} - ${p.precio} €
-        <button onclick="añadir(${p.id})">Añadir</button>
-      </div>
+    const div = document.createElement('div')
+    div.className = 'card'
+    div.innerHTML = `
+      <h3>${p.nombre}</h3>
+      <p>Precio: ${p.precio} €</p>
+      <p>Stock: ${p.stock}</p>
+      <p>Categoría: ${p.categoria}</p>
+      <button>Añadir al carrito</button>
     `
+    div.querySelector('button').addEventListener('click', () => añadir(p.id))
+    cont.appendChild(div)
   })
 }
 
 function mostrarCarrito() {
   const div = document.getElementById('carrito')
+  const carrito = obtenerCarrito()
   div.innerHTML = ''
 
-  obtenerCarrito().forEach(i => {
-    const prod = productos.find(p => p.id === i.id)
-    div.innerHTML += `<p>${prod.nombre} x ${i.cantidad}</p>`
+  if (carrito.length === 0) {
+    div.textContent = 'Carrito vacío'
+    return
+  }
+
+  carrito.forEach(item => {
+    const prod = productos.find(p => p.id === item.id)
+    if (!prod) return
+    const p = document.createElement('p')
+    p.textContent = `${prod.nombre} x ${item.cantidad}`
+    div.appendChild(p)
   })
 }
 
-document.getElementById('vaciar').onclick = () => {
+document.getElementById('vaciar').addEventListener('click', () => {
   localStorage.removeItem('carrito')
   mostrarCarrito()
-}
+})

@@ -2,15 +2,20 @@ let draggedCard = null;
 const placeholder = document.createElement('div');
 placeholder.className = 'placeholder';
 
-document.querySelectorAll('.card').forEach(card => {
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(card => {
   card.addEventListener('dragstart', e => {
     draggedCard = card;
     card.classList.add('dragging');
 
-    e.dataTransfer.setData(
-      'application/json',
-      JSON.stringify({ id: card.id })
-    );
+    const taskData = {
+      id: card.id,
+      status: card.getAttribute('data-status')
+    };
+
+    e.dataTransfer.setData('application/json', JSON.stringify(taskData));
+    e.dataTransfer.effectAllowed = 'move';
   });
 
   card.addEventListener('dragend', () => {
@@ -22,6 +27,7 @@ document.querySelectorAll('.card').forEach(card => {
 document.querySelectorAll('.column').forEach(column => {
   column.addEventListener('dragover', e => {
     e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
     column.classList.add('dragover');
 
     const afterElement = getDragAfterElement(column, e.clientY);
@@ -42,9 +48,13 @@ document.querySelectorAll('.column').forEach(column => {
 
     const data = JSON.parse(e.dataTransfer.getData('application/json'));
     const card = document.getElementById(data.id);
+    const newStatus = column.getAttribute('data-status');
 
+    card.setAttribute('data-status', newStatus);
     column.insertBefore(card, placeholder);
     placeholder.remove();
+
+    addDragListenerToCard(card);
   });
 });
 
@@ -60,4 +70,24 @@ function getDragAfterElement(container, y) {
     }
     return closest;
   }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
+
+function addDragListenerToCard(card) {
+  card.addEventListener('dragstart', e => {
+    draggedCard = card;
+    card.classList.add('dragging');
+
+    const taskData = {
+      id: card.id,
+      status: card.getAttribute('data-status')
+    };
+
+    e.dataTransfer.setData('application/json', JSON.stringify(taskData));
+    e.dataTransfer.effectAllowed = 'move';
+  });
+
+  card.addEventListener('dragend', () => {
+    card.classList.remove('dragging');
+    placeholder.remove();
+  });
 }

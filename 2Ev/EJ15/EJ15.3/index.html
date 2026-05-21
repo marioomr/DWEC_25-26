@@ -3,23 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>Planificador de Rutas</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<h1>Planificador de Rutas</h1>
+<div class="container">
+  <h1>Planificador de Rutas Geográficas</h1>
 
-<input id="lat" placeholder="Latitud">
-<input id="lng" placeholder="Longitud">
-<button id="add">Añadir Punto</button>
+  <div class="controls">
+    <div class="input-group">
+      <label for="lat">Latitud (-90 a 90):</label>
+      <input id="lat" type="number" placeholder="ej: 40.4168" min="-90" max="90" step="0.0001">
+    </div>
+    <div class="input-group">
+      <label for="lng">Longitud (-180 a 180):</label>
+      <input id="lng" type="number" placeholder="ej: -3.7038" min="-180" max="180" step="0.0001">
+    </div>
+    <button id="add">Añadir Punto</button>
+  </div>
 
-<p>Distancia total: <span id="distance">0</span> km</p>
+  <div class="info">
+    <p><strong>Distancia total:</strong> <span id="distance">0.00</span> km</p>
+  </div>
 
-<ul id="points"></ul>
-<div id="map"></div>
+  <div class="content">
+    <div class="points-section">
+      <h2>Puntos de la Ruta</h2>
+      <ul id="points"></ul>
+    </div>
+    <div id="map"></div>
+  </div>
+</div>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

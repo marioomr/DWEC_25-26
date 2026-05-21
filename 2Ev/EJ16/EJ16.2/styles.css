@@ -1,34 +1,108 @@
-/* styles.css */
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #f4f6f8;
   padding: 20px;
+  margin: 0;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#eventos {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .evento {
   background: #fff;
   border-left: 6px solid #2b7cff;
-  padding: 15px;
-  margin-bottom: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
   border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.evento:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .evento.finalizado {
-  background: #eaeaea;
+  background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
   border-left-color: #999;
   color: #777;
+  opacity: 0.8;
+}
+
+.evento h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.evento.finalizado h3 {
+  color: #888;
+}
+
+.evento p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.evento.finalizado p {
+  color: #999;
 }
 
 .contador {
-  margin-top: 8px;
+  margin-top: 12px;
+  margin-bottom: 12px;
   font-weight: bold;
+  font-size: 16px;
+  color: #2b7cff;
+  font-family: 'Courier New', monospace;
+}
+
+.evento.finalizado .contador {
+  color: #d32f2f;
+  font-size: 18px;
 }
 
 input {
-  width: 120px;
-  margin-top: 8px;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 140px;
+  margin-top: 10px;
+  margin-right: 8px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2b7cff;
+  box-shadow: 0 0 5px rgba(43, 124, 255, 0.3);
 }
 
 button {
-  margin-left: 6px;
+  padding: 8px 20px;
+  background-color: #2b7cff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #1e5fb8;
+}
+
+button:active {
+  transform: scale(0.98);
 }

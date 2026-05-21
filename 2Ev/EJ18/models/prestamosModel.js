@@ -1,11 +1,4 @@
-const path = require('path');
-
-let db;
-try {
-    db = require(path.join('..', 'database'));
-} catch (e) {
-    db = require(path.join('..', 'db'));
-}
+const db = require('../config/db');
 
 // 2. LIBROS PRESTADOS (REQUISITO 2)
 exports.getLibrosPrestados = async () => {

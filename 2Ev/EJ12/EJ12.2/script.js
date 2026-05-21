@@ -27,21 +27,21 @@ form.addEventListener('submit', async e => {
     mensaje.textContent = ''
     const card = document.createElement('div')
     card.className = 'card'
-    card.innerHTML = `<h3>${usuario.nombre}</h3><p>Registrado: ${usuario.fechaRegistro || 'N/D'}</p>`
+    card.innerHTML = `<h3>${usuario.nombre}</h3><p>Registrado: ${usuario.fechaRegistro}</p>`
     resultado.appendChild(card)
     if(pedidosUsuario.length === 0){
       const p = document.createElement('p')
       p.textContent = 'Este usuario no tiene pedidos registrados'
       resultado.appendChild(p)
-    } else {
-      const ul = document.createElement('ul')
-      pedidosUsuario.forEach(p => {
-        const li = document.createElement('li')
-        li.textContent = `ID: ${p.id} | Fecha: ${p.fecha} | Estado: ${p.estado}`
-        ul.appendChild(li)
-      })
-      resultado.appendChild(ul)
+      return
     }
+    const ul = document.createElement('ul')
+    pedidosUsuario.forEach(p => {
+      const li = document.createElement('li')
+      li.textContent = `ID: ${p.id} | Fecha: ${p.fecha} | Estado: ${p.estado}`
+      ul.appendChild(li)
+    })
+    resultado.appendChild(ul)
   }catch(e){
     mensaje.textContent = 'Error buscando datos'
   }

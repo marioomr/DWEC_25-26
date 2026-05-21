@@ -1,4 +1,5 @@
-const API_URL = 'https://crudcrud.com/api/c629bac64a364e02a59092bfe10d4dbc/users';
+const CRUDCRUD_ID = '0634417fbc494b108c5c6a6dccd6a55d';
+const API_URL = `https://crudcrud.com/api/${CRUDCRUD_ID}/users`;
 
 const msg = document.getElementById('msg');
 const lista = document.getElementById('lista');
@@ -19,6 +20,20 @@ const cancelEdit = document.getElementById('cancel-edit');
 let usersCache = [];
 let editingId = null;
 let inRequest = false;
+
+function setLoading(active){
+  inRequest = active;
+  loading.style.display = active ? '' : 'none';
+  validateForm();
+  renderUsers(usersCache);
+}
+
+function checkResponse(response){
+  if(!response.ok){
+    throw new Error('Error HTTP ' + response.status);
+  }
+  return response;
+}
 
 function showMsg(text, isError=false){
   msg.textContent = text;
@@ -46,16 +61,21 @@ function validateForm(){
 }
 
 async function getUsers(){
+  inRequest = true;
   loading.style.display = '';
   try{
     const res = await fetch(API_URL);
+    checkResponse(res);
     const data = await res.json();
     usersCache = data;
     renderUsers(usersCache);
     loading.style.display = 'none';
   }catch(e){
     loading.style.display = 'none';
-    showMsg('Error cargando usuarios', true);
+    showMsg('Error cargando usuarios. Revisa que el endpoint de CrudCrud siga activo.', true);
+  } finally {
+    inRequest = false;
+    validateForm();
   }
 }
 
@@ -75,8 +95,8 @@ function renderUsers(list){
         <small>${u.email}</small>
       </div>
       <div>
-        <button class="edit" data-id="${u._id}">Editar</button>
-        <button class="delete" data-id="${u._id}">Eliminar</button>
+        <button class="edit" data-id="${u._id}" ${inRequest ? 'disabled' : ''}>Editar</button>
+        <button class="delete" data-id="${u._id}" ${inRequest ? 'disabled' : ''}>Eliminar</button>
       </div>`;
     lista.appendChild(li);
   });
@@ -103,19 +123,19 @@ form.addEventListener('submit', async (e) => {
     email: email.value.trim(),
     picture: picture.value.trim()
   };
-  inRequest = true;
-  validateForm();
+  setLoading(true);
   if(editingId){
-    const prev = usersCache.find(u => u._id === editingId);
-    const prevCopy = {...prev};
-    Object.assign(prev, payload);
-    renderUsers(usersCache);
+      const prev = usersCache.find(u => u._id === editingId);
+      const prevCopy = {...prev};
+      Object.assign(prev, payload);
+      renderUsers(usersCache);
     try{
-      await fetch(API_URL + '/' + editingId, {
+      const res = await fetch(API_URL + '/' + editingId, {
         method: 'PUT',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(payload)
       });
+      checkResponse(res);
       showMsg('Usuario actualizado');
       editingId = null;
       form.reset();
@@ -126,8 +146,7 @@ form.addEventListener('submit', async (e) => {
       showMsg('Error actualizando', true);
       renderUsers(usersCache);
     } finally {
-      inRequest = false;
-      validateForm();
+      setLoading(false);
     }
   } else {
     const optimistic = {_id:'opt-'+Date.now(), ...payload};
@@ -139,6 +158,7 @@ form.addEventListener('submit', async (e) => {
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(payload)
       });
+      checkResponse(res);
       const saved = await res.json();
       usersCache = usersCache.map(u => u._id === optimistic._id ? saved : u);
       showMsg('Usuario añadido');
@@ -149,8 +169,7 @@ form.addEventListener('submit', async (e) => {
       showMsg('Error añadiendo usuario', true);
       renderUsers(usersCache);
     } finally {
-      inRequest = false;
-      validateForm();
+      setLoading(false);
     }
   }
 });
@@ -176,13 +195,17 @@ lista.addEventListener('click', async (e) => {
     const backup = usersCache.slice();
     usersCache = removed;
     renderUsers(usersCache);
+    setLoading(true);
     try{
-      await fetch(API_URL + '/' + id, { method: 'DELETE' });
+      const res = await fetch(API_URL + '/' + id, { method: 'DELETE' });
+      checkResponse(res);
       showMsg('Usuario eliminado');
     }catch{
       usersCache = backup;
       renderUsers(usersCache);
       showMsg('Error eliminando', true);
+    } finally {
+      setLoading(false);
     }
   }
 });

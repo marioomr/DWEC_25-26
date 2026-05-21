@@ -6,5 +6,6 @@
   { "pedidoId": 1003, "productoId": 105, "cantidad": 2, "precioUnitario": 65.75 },
   { "pedidoId": 1004, "productoId": 103, "cantidad": 2, "precioUnitario": 45.00 },
   { "pedidoId": 1005, "productoId": 101, "cantidad": 1, "precioUnitario": 89.99 },
-  { "pedidoId": 1005, "productoId": 105, "cantidad": 1, "precioUnitario": 65.75 }
+  { "pedidoId": 1005, "productoId": 105, "cantidad": 1, "precioUnitario": 65.75 },
+  { "pedidoId": 1006, "productoId": 106, "cantidad": 1, "precioUnitario": 79.90 }
 ]

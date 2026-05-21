@@ -14,7 +14,7 @@ const autorSchema = new mongoose.Schema(
             type: String
         },
         fechaNacimiento: {
-            type: String
+            type: Date
         },
         imagenUrl: {
             type: String
