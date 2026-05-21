@@ -4,31 +4,29 @@ const db = require('../config/db');
 const isAuthenticated = require('../middleware/auth');
 
 router.get('/dashboard', isAuthenticated, (req, res) => {
-
   const userId = req.session.user.id;
 
   db.query(
     'SELECT * FROM projects WHERE user_id = ?',
     [userId],
     (err, projects) => {
+      if (err) console.error('Projects query error:', err);
 
       db.query(
         'SELECT * FROM social_links WHERE user_id = ?',
         [userId],
         (err, links) => {
+          if (err) console.error('Links query error:', err);
 
           res.render('dashboard', {
             user: req.session.user,
-            projects,
-            links
+            projects: projects || [],
+            links: links || []
           });
-
         }
       );
-
     }
   );
-
 });
 
 router.post('/update-profile', isAuthenticated, (req, res) => {

@@ -11,18 +11,24 @@ router.post('/register', (req, res) => {
 
   const { username, password, email } = req.body;
 
-  const sql = `
-    INSERT INTO users (username, password, email)
-    VALUES (?, ?, ?)
-  `;
+  if (!username || !password || !email) {
+    return res.render('register', { error: 'Todos los campos son requeridos' });
+  }
 
-  db.query(sql, [username, md5(password), email], (err) => {
+  if (password.length < 6) {
+    return res.render('register', { error: 'La contraseña debe tener al menos 6 caracteres' });
+  }
 
+  const sql = `INSERT INTO users (username, password, bio, email, photo) VALUES (?, ?, ?, ?, ?)`;
+
+  db.query(sql, [username, md5(password), '', email, ''], (err) => {
     if (err) {
-      console.log(err);
-      return res.send('Error al registrar usuario');
+      console.error('Register Error:', err.message);
+      if (err.code === 'ER_DUP_ENTRY') {
+        return res.render('register', { error: 'El usuario o email ya existe' });
+      }
+      return res.render('register', { error: 'Error al registrar usuario' });
     }
-
     res.redirect('/login');
   });
 });
@@ -32,27 +38,25 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-
   const { username, password } = req.body;
 
-  const sql = `
-    SELECT * FROM users
-    WHERE username = ? AND password = ?
-  `;
+  if (!username || !password) {
+    return res.render('login', { error: 'Usuario y contraseña requeridos' });
+  }
+
+  const sql = `SELECT * FROM users WHERE username = ? AND password = ?`;
 
   db.query(sql, [username, md5(password)], (err, results) => {
-
     if (err) {
-      console.log(err);
-      return res.send('Error del servidor');
+      console.error('Login Error:', err.message);
+      return res.render('login', { error: 'Error del servidor' });
     }
 
-    if (results.length === 0) {
-      return res.send('Credenciales incorrectas');
+    if (!results || results.length === 0) {
+      return res.render('login', { error: 'Usuario o contraseña incorrectos' });
     }
 
     req.session.user = results[0];
-
     res.redirect('/dashboard');
   });
 });

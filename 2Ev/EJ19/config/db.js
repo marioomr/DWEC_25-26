@@ -6,12 +6,12 @@ const pool = mysql.createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  port: process.env.DB_PORT,
+  port: Number(process.env.DB_PORT) || 3306,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
 });
 
-console.log('MySQL Pool Connected');
+console.log('Pool initialized for:', process.env.DB_HOST);
 
 module.exports = pool;
